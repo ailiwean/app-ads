@@ -206,26 +206,48 @@
         'vi':'Hướng dẫn sử dụng Network Share'
       };
       const intro = {
-        'en':'Supports full‑tunnel VPN proxy and LAN proxy; set host IP + port as needed.',
-        'zh-CN':'支持全量 VPN 代理与局域网代理，可按需填写主机 IP 和端口。',
-        'ar':'يدعم وكيل VPN كامل النطاق ووكيل LAN؛ اضبط IP المضيف والمنفذ عند الحاجة.',
-        'de':'Unterstützt Volltunnel‑VPN‑Proxy und LAN‑Proxy; Host‑IP und Port nach Bedarf setzen.',
-        'es':'Admite proxy VPN de túnel completo y proxy LAN; configura IP y puerto del host según sea necesario.',
-        'fa':'از پروکسی VPN تمام‌ترافیک و پروکسی LAN پشتیبانی می‌کند؛ IP و پورت میزبان را در صورت نیاز تنظیم کنید.',
-        'fr':'Prend en charge le proxy VPN tunnel complet et le proxy LAN ; définissez l’IP et le port de l’hôte selon le besoin.',
-        'hi':'फुल‑टनल VPN प्रॉक्सी और LAN प्रॉक्सी समर्थित हैं; आवश्यकता अनुसार होस्ट IP व पोर्ट सेट करें।',
-        'id':'Mendukung proxy VPN full‑tunnel dan proxy LAN; atur IP dan port host sesuai kebutuhan.',
-        'ja':'フルトンネルVPNプロキシとLANプロキシに対応。必要に応じてホストIPとポートを設定してください。',
-        'ko':'전체 터널 VPN 프록시와 LAN 프록시를 지원합니다. 필요에 따라 호스트 IP와 포트를 설정하세요.',
-        'ms':'Menyokong proksi VPN terowong penuh dan proksi LAN; tetapkan IP serta port hos mengikut keperluan.',
-        'pt':'Suporta proxy VPN de túnel completo e proxy LAN; defina IP e porta do host conforme necessário.',
-        'ru':'Поддерживаются полнотуннельный VPN‑прокси и LAN‑прокси; при необходимости укажите IP и порт хоста.',
-        'sw':'Inaunga mkono proksi ya VPN full‑tunnel na proksi ya LAN; weka IP na port ya host inapohitajika.',
-        'th':'รองรับพร็อกซี VPN แบบ full‑tunnel และพร็อกซี LAN; ตั้งค่า IP และพอร์ตของโฮสต์ตามต้องการ',
-        'tl':'Sumusuporta sa full‑tunnel VPN proxy at LAN proxy; itakda ang host IP at port kung kailangan.',
-        'tr':'Tam tünel VPN proxy ve LAN proxy desteklenir; gerektiğinde host IP ve portu ayarlayın.',
-        'ur':'فل ٹنل VPN پراکسی اور LAN پراکسی سپورٹ ہے؛ ضرورت کے مطابق ہوسٹ IP اور پورٹ سیٹ کریں۔',
-        'vi':'Hỗ trợ proxy VPN full‑tunnel và proxy LAN; đặt IP và cổng của host khi cần.'
+        'en':'Supports full‑tunnel VPN proxy and LAN proxy; use the VPN-sharing host device IP and port on other devices.',
+        'zh-CN':'支持全量 VPN 代理与局域网代理；主机IP用于配置给其他设备，请填写提供VPN分享的设备IP。',
+        'ar':'يدعم وكيل VPN كامل النطاق ووكيل LAN؛ أدخل IP ومنفذ جهاز المضيف الذي يشارك VPN على الأجهزة الأخرى.',
+        'de':'Unterstützt Volltunnel‑VPN‑Proxy und LAN‑Proxy; trage auf anderen Geräten IP und Port des VPN-freigebenden Host-Geräts ein.',
+        'es':'Admite proxy VPN de túnel completo y proxy LAN; en otros dispositivos usa la IP y el puerto del host que comparte la VPN.',
+        'fa':'از پروکسی VPN تمام‌ترافیک و پروکسی LAN پشتیبانی می‌کند؛ در دستگاه‌های دیگر، IP و پورت دستگاه میزبانِ اشتراک‌گذار VPN را وارد کنید.',
+        'fr':'Prend en charge le proxy VPN tunnel complet et le proxy LAN ; sur les autres appareils, renseignez l’IP et le port de l’hôte qui partage le VPN.',
+        'hi':'फुल‑टनल VPN प्रॉक्सी और LAN प्रॉक्सी समर्थित हैं; अन्य डिवाइसों में VPN शेयर करने वाले होस्ट डिवाइस का IP और पोर्ट भरें।',
+        'id':'Mendukung proxy VPN full‑tunnel dan proxy LAN; pada perangkat lain, isi IP dan port perangkat host yang membagikan VPN.',
+        'ja':'フルトンネルVPNプロキシとLANプロキシに対応。ほかの端末には、VPN共有を提供するホスト端末のIPとポートを設定してください。',
+        'ko':'전체 터널 VPN 프록시와 LAN 프록시를 지원합니다. 다른 기기에는 VPN 공유를 제공하는 호스트 기기의 IP와 포트를 입력하세요.',
+        'ms':'Menyokong proksi VPN terowong penuh dan proksi LAN; pada peranti lain, isikan IP dan port peranti hos yang berkongsi VPN.',
+        'pt':'Suporta proxy VPN de túnel completo e proxy LAN; em outros dispositivos, use o IP e a porta do dispositivo host que compartilha a VPN.',
+        'ru':'Поддерживаются полнотуннельный VPN‑прокси и LAN‑прокси; на других устройствах указывайте IP и порт хост‑устройства, раздающего VPN.',
+        'sw':'Inaunga mkono proksi ya VPN full‑tunnel na proksi ya LAN; kwenye vifaa vingine, weka IP na port ya kifaa host kinachoshiriki VPN.',
+        'th':'รองรับพร็อกซี VPN แบบ full‑tunnel และพร็อกซี LAN; บนอุปกรณ์อื่นให้กรอก IP และพอร์ตของอุปกรณ์โฮสต์ที่แชร์ VPN',
+        'tl':'Sumusuporta sa full‑tunnel VPN proxy at LAN proxy; sa ibang device, ilagay ang IP at port ng host device na nagbabahagi ng VPN.',
+        'tr':'Tam tünel VPN proxy ve LAN proxy desteklenir; diğer cihazlara VPN paylaşımı yapan ana cihazın IP ve portunu girin.',
+        'ur':'فل ٹنل VPN پراکسی اور LAN پراکسی سپورٹ ہے؛ دوسرے ڈیوائسز میں VPN شیئر کرنے والے میزبان ڈیوائس کا IP اور پورٹ درج کریں۔',
+        'vi':'Hỗ trợ proxy VPN full‑tunnel và proxy LAN; trên các thiết bị khác, hãy nhập IP và cổng của thiết bị host đang chia sẻ VPN.'
+      };
+      const hostIpNotes = {
+        'en':'Host IP means the VPN-sharing host device IP. Configure this value on other devices, not the current client device.',
+        'zh-CN':'主机IP用于配置给其他设备，请填写提供VPN分享的设备IP，而非当前正在配置的设备IP。',
+        'ar':'يعني عنوان IP للمضيف عنوان جهاز المضيف الذي يشارك VPN. اضبط هذه القيمة على الأجهزة الأخرى، وليس على الجهاز العميل الذي تقوم بإعداده حالياً.',
+        'de':'Host-IP bedeutet die IP des Geräts, das VPN teilt. Trage diesen Wert auf anderen Geräten ein, nicht auf dem aktuell konfigurierten Client-Gerät.',
+        'es':'La IP del host es la IP del dispositivo que comparte la VPN. Configura este valor en otros dispositivos, no en el dispositivo cliente que estás configurando.',
+        'fa':'منظور از IP میزبان، IP دستگاهی است که VPN را به اشتراک می‌گذارد. این مقدار را روی دستگاه‌های دیگر تنظیم کنید، نه روی دستگاهی که اکنون در حال پیکربندی آن هستید.',
+        'fr':'L’IP hôte est l’adresse IP de l’appareil qui partage le VPN. Configurez cette valeur sur les autres appareils, pas sur l’appareil client en cours de configuration.',
+        'hi':'Host IP का मतलब उस डिवाइस का IP है जो VPN शेयर कर रहा है। यह मान दूसरे डिवाइसों में भरें, अभी जिस क्लाइंट डिवाइस को कॉन्फ़िगर कर रहे हैं उसमें नहीं।',
+        'id':'Host IP adalah IP perangkat host yang membagikan VPN. Atur nilai ini di perangkat lain, bukan di perangkat klien yang sedang dikonfigurasi.',
+        'ja':'ホストIPは、VPN共有を提供しているホスト端末のIPです。この値は現在設定中の端末ではなく、他の端末に設定してください。',
+        'ko':'호스트 IP는 VPN 공유를 제공하는 호스트 기기의 IP입니다. 이 값은 현재 설정 중인 클라이언트 기기가 아니라 다른 기기에 입력하세요.',
+        'ms':'IP hos ialah IP peranti hos yang berkongsi VPN. Tetapkan nilai ini pada peranti lain, bukan pada peranti klien yang sedang dikonfigurasi.',
+        'pt':'O IP do host é o IP do dispositivo que compartilha a VPN. Configure este valor em outros dispositivos, não no dispositivo cliente que está sendo configurado.',
+        'ru':'Host IP — это IP устройства-хоста, которое раздаёт VPN. Указывайте это значение на других устройствах, а не на устройстве-клиенте, которое сейчас настраивается.',
+        'sw':'Host IP ni anwani ya IP ya kifaa cha host kinachoshiriki VPN. Weka thamani hii kwenye vifaa vingine, si kwenye kifaa cha mteja unachosanidi sasa.',
+        'th':'Host IP คือ IP ของอุปกรณ์โฮสต์ที่แชร์ VPN ให้ผู้อื่น ให้ตั้งค่านี้บนอุปกรณ์อื่น ไม่ใช่อุปกรณ์ไคลเอนต์ที่กำลังกำหนดค่าอยู่ตอนนี้',
+        'tl':'Ang Host IP ay ang IP ng host device na nagbabahagi ng VPN. Ilagay ang value na ito sa ibang device, hindi sa kasalukuyang client device na kino-configure.',
+        'tr':'Host IP, VPN paylaşımı yapan ana cihazın IP adresidir. Bu değeri yapılandırdığınız mevcut istemci cihaza değil, diğer cihazlara girin.',
+        'ur':'Host IP سے مراد اُس میزبان ڈیوائس کا IP ہے جو VPN شیئر کر رہی ہے۔ یہ ویلیو دوسرے ڈیوائسز میں درج کریں، موجودہ کلائنٹ ڈیوائس میں نہیں جسے آپ ابھی کنفیگر کر رہے ہیں۔',
+        'vi':'Host IP là địa chỉ IP của thiết bị máy chủ đang chia sẻ VPN. Hãy cấu hình giá trị này trên các thiết bị khác, không phải trên thiết bị khách đang được cấu hình.'
       };
       const map = {'en':'en','zh':'zh-CN','zh-CN':'zh-CN','zh-TW':'zh-CN','ar':'ar','de':'de','es':'es','fa':'fa','fr':'fr','hi':'hi','id':'id','in':'id','ja':'ja','ko':'ko','ms':'ms','pt':'pt','pt-BR':'pt','ru':'ru','sw':'sw','th':'th','tl':'tl','tr':'tr','ur':'ur','vi':'vi'};
       const apply = (lang) => {
@@ -238,6 +260,8 @@
         if(h1) h1.textContent=t;
         const p=document.getElementById('intro');
         if(p) p.textContent=intro[lang]||intro.en;
+        const note=document.getElementById('host-ip-note');
+        if(note) note.textContent=hostIpNotes[lang]||hostIpNotes.en;
         const sel=document.getElementById('lang-select');
         if(sel) sel.value=lang;
       };
@@ -279,13 +303,14 @@
     </select>
   </div>
   <p id="intro">Supports full‑tunnel VPN proxy and LAN proxy; set host IP + port as needed.</p>
+  <p id="host-ip-note"><strong>Host IP means the VPN-sharing host device IP. Configure this value on other devices, not the current client device.</strong></p>
 
   <div class="lang" data-lang="en">
     <h2>Purpose</h2>
     <p>Use this device as a LAN proxy gateway on the same Wi‑Fi/hotspot; other devices forward traffic via this host (can stack with host VPN). Supports simultaneous connections from multiple devices.</p>
     <h2>Configuration parameters</h2>
     <div class="guide-image"><img src="img/introduce.png" alt="Configuration parameters"></div>
-    <p>Host: 10.0.2.15:1080<br>Host IP: 10.0.2.15<br>App port: 1080<br>Replace the example IP and port with your device's actual values.<br>If the Listener Port is unavailable or in use, choose any port between 1024–49151; functionality is the same.</p>
+    <p>Host: 10.0.2.15:1080<br>Host IP: 10.0.2.15<br>App port: 1080<br>Replace the example IP and port with the VPN-sharing host device's actual values.<br>If the Listener Port is unavailable or in use, choose any port between 1024–49151; functionality is the same.</p>
     <h2>Host (with VPN) steps</h2>
     <ol>
       <li>Open the app, pick proxy mode (recommend “Auto-detect”) and port (default 1080).</li>
@@ -342,7 +367,7 @@
     </div>
     <h2>LAN proxy / Wi‑Fi LAN proxy</h2>
     <ul>
-      <li><strong>Android</strong>: Wi‑Fi details → Proxy = Manual; host = this device IP, port = app port. Or set HTTP/HTTPS in apps.
+      <li><strong>Android</strong>: Wi‑Fi details → Proxy = Manual; host = VPN-sharing host device IP, port = app port. Or set HTTP/HTTPS in apps.
         <div class="guide-image"><img src="img/guide_android.png" alt="Android proxy setup"></div>
       </li>
       <li><strong>iOS</strong>: Settings → Wi‑Fi → current network → Configure Proxy = Manual; server = host IP, port = app port (HTTP/HTTPS).
@@ -367,10 +392,10 @@
 
   <div class="lang" data-lang="zh-CN">
     <h2>作用</h2>
-    <p>同一 Wi‑Fi/热点下，将本机作为代理网关，其他设备通过本机转发流量（可叠加本机 VPN）。支持多台设备同时连接。</p>
+    <p>同一 Wi‑Fi/热点下，将主机作为代理网关，其他设备通过主机转发流量（可叠加主机 VPN）。支持多台设备同时连接。</p>
     <h2>配置参数介绍</h2>
     <div class="guide-image"><img src="img/introduce.png" alt="配置参数介绍"></div>
-    <p>主机：10.0.2.15:1080<br>本机 IP：10.0.2.15<br>App 端口：1080<br>请将示例中的 IP 和端口替换为你本机的实际值。<br>如提示 Listener Port 不可用或被占用，可在 1024–49151 范围内任选一个端口，功能没有区别。</p>
+    <p>主机：10.0.2.15:1080<br>主机IP：10.0.2.15<br>App 端口：1080<br>请将示例中的 IP 和端口替换为你的主机实际值（提供VPN分享的设备）。<br>如提示 Listener Port 不可用或被占用，可在 1024–49151 范围内任选一个端口，功能没有区别。</p>
     <h2>主机端（有VPN）步骤</h2>
     <ol>
       <li>打开 App，选代理模式（推荐“自动识别”）和端口（默认 1080）。</li>
@@ -428,25 +453,25 @@
     </div>
     <h2>局域网代理 / Wi‑Fi 局域网代理</h2>
     <ul>
-      <li><strong>Android</strong>：Wi‑Fi 详情→代理=手动，主机名填本机 IP，端口填 App 端口；或在支持代理的应用中填写 HTTP/HTTPS。
+      <li><strong>Android</strong>：Wi‑Fi 详情→代理=手动，主机名填主机IP，端口填 App 端口；或在支持代理的应用中填写 HTTP/HTTPS。
         <div class="guide-image"><img src="img/guide_android.png" alt="Android 代理设置示意图"></div>
       </li>
-      <li><strong>iOS</strong>：设置→Wi‑Fi→当前网络→配置代理=手动，服务器填本机 IP，端口填 App 端口（HTTP/HTTPS）。
+      <li><strong>iOS</strong>：设置→Wi‑Fi→当前网络→配置代理=手动，服务器填主机IP，端口填 App 端口（HTTP/HTTPS）。
         <div class="guide-image"><img src="img/guide_ios.png" alt="iOS 代理设置示意图"></div>
       </li>
-      <li><strong>Windows</strong>：设置→网络和 Internet→代理→手动代理，地址=本机 IP，端口=App 端口（HTTP/HTTPS）。<br>代理忽略项：localhost;127.*;192.168.*;10.*;172.16.*;172.17.*;172.18.*;172.19.*;172.20.*;172.21.*;172.22.*;172.23.*;172.24.*;172.25.*;172.26.*;172.27.*;172.28.*;172.29.*;172.30.*;172.31.*。
+      <li><strong>Windows</strong>：设置→网络和 Internet→代理→手动代理，地址=主机IP，端口=App 端口（HTTP/HTTPS）。<br>代理忽略项：localhost;127.*;192.168.*;10.*;172.16.*;172.17.*;172.18.*;172.19.*;172.20.*;172.21.*;172.22.*;172.23.*;172.24.*;172.25.*;172.26.*;172.27.*;172.28.*;172.29.*;172.30.*;172.31.*。
         <div class="copy-row"><button type="button" class="copy-btn" data-copy="localhost;127.*;192.168.*;10.*;172.16.*;172.17.*;172.18.*;172.19.*;172.20.*;172.21.*;172.22.*;172.23.*;172.24.*;172.25.*;172.26.*;172.27.*;172.28.*;172.29.*;172.30.*;172.31.*"></button></div>
         <div class="guide-image"><img src="img/guide_window.png" alt="Windows 代理设置示意图"></div>
       </li>
-      <li><strong>macOS</strong>：系统设置→网络→当前接口→详情→代理，勾选 HTTP/HTTPS（或 SOCKS5），服务器=本机 IP，端口=App 端口。
+      <li><strong>macOS</strong>：系统设置→网络→当前接口→详情→代理，勾选 HTTP/HTTPS（或 SOCKS5），服务器=主机IP，端口=App 端口。
         <div class="proxy-bypass"><span class="proxy-bypass-label"></span> 127.0.0.1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,172.29.0.0/16,localhost,*.local,*.crashlytics.com,<local>,919dm*</div>
         <div class="copy-row"><button type="button" class="copy-btn" data-copy="127.0.0.1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,172.29.0.0/16,localhost,*.local,*.crashlytics.com,<local>,919dm*"></button></div>
         <div class="guide-image"><img src="img/guide_mac.png" alt="macOS 代理设置示意图"></div>
       </li>
-      <li><strong>其他设备</strong>：在支持的 HTTP/HTTPS/SOCKS5 代理入口手动填本机 IP + 端口。</li>
+      <li><strong>其他设备</strong>：在支持的 HTTP/HTTPS/SOCKS5 代理入口手动填主机IP + 端口。</li>
     </ul>
     <h2>增强模式</h2>
-    <p>部分 VPN 会阻止局域网内其他设备入站到本机，导致无法访问代理服务，从而 VPN 分享失效。增强模式通过增加一个协同设备，将代理服务转移到协同设备上。本机（运行 VPN 的设备）出站访问协同设备，带回数据后再由本机发起请求。</p>
+    <p>部分 VPN 会阻止局域网内其他设备入站到主机，导致无法访问代理服务，从而 VPN 分享失效。增强模式通过增加一个协同设备，将代理服务转移到协同设备上。主机（运行 VPN 的设备）出站访问协同设备，带回数据后再由主机发起请求。</p>
     <p>若在正确配置后其他局域网设备仍无法访问代理，请开启增强模式。协同设备也可以像其他设备一样配置代理，使用主设备的 VPN。</p>
     <p class="notice-green"><strong>重要：</strong>协同设备如需通过 Clash 使用全量 VPN 代理，请先关闭自身的 VPN，先与主设备成功建立连接；连接完成后再开启 VPN。当前系统以“是否启用 VPN”来区分主设备与协同设备。</p>
   </div>
@@ -456,7 +481,7 @@
     <p>استخدم الجهاز كبوابة وكيل داخل نفس شبكة Wi‑Fi/نقطة الاتصال؛ تُمرَّر حركة الأجهزة الأخرى عبر هذا المضيف (يمكن تكديس VPN المضيف). يدعم الاتصال المتزامن لعدة أجهزة.</p>
     <h2>شرح معلمات الإعداد</h2>
     <div class="guide-image"><img src="img/introduce.png" alt="شرح معلمات الإعداد"></div>
-    <p>المضيف: 10.0.2.15:1080<br>عنوان IP للمضيف: 10.0.2.15<br>منفذ التطبيق: 1080<br>استبدل قيم IP والمنفذ في المثال بالقيم الفعلية لجهازك.<br>إذا أظهر Listener Port أنه غير متاح أو قيد الاستخدام، فاختر أي منفذ بين 1024–49151؛ لا يوجد فرق في الوظيفة.</p>
+    <p>المضيف: 10.0.2.15:1080<br>عنوان IP للمضيف: 10.0.2.15<br>منفذ التطبيق: 1080<br>استبدل قيم IP والمنفذ في المثال بالقيم الفعلية لجهاز المضيف الذي يشارك VPN.<br>إذا أظهر Listener Port أنه غير متاح أو قيد الاستخدام، فاختر أي منفذ بين 1024–49151؛ لا يوجد فرق في الوظيفة.</p>
     <h2>خطوات المضيف (مع VPN)</h2>
     <ol>
       <li>افتح التطبيق، واختر وضع الوكيل (يُنصح بـ “اكتشاف تلقائي”) والمنفذ (الافتراضي 1080). الإصدار الحالي يوجّه كل الحركة عبر الوكيل.</li>
@@ -626,7 +651,7 @@
     <p>Usa este dispositivo como puerta de enlace proxy en la misma red Wi‑Fi/punto de acceso; los demás equipos envían su tráfico a través de este host (puede combinarse con la VPN del host). Admite conexiones simultáneas de varios dispositivos.</p>
     <h2>Parámetros de configuración</h2>
     <div class="guide-image"><img src="img/introduce.png" alt="Parámetros de configuración"></div>
-    <p>Host: 10.0.2.15:1080<br>IP del host: 10.0.2.15<br>Puerto de la app: 1080<br>Sustituye la IP y el puerto de ejemplo por los valores reales de tu dispositivo.<br>Si el Listener Port no está disponible o está en uso, elige cualquier puerto entre 1024–49151; la funcionalidad es la misma.</p>
+    <p>Host: 10.0.2.15:1080<br>IP del host: 10.0.2.15<br>Puerto de la app: 1080<br>Sustituye la IP y el puerto de ejemplo por los valores reales del dispositivo host que comparte la VPN.<br>Si el Listener Port no está disponible o está en uso, elige cualquier puerto entre 1024–49151; la funcionalidad es la misma.</p>
     <h2>Pasos en el host (con VPN)</h2>
     <ol>
       <li>Abre la app, elige el modo de proxy (se recomienda “Detección automática”) y el puerto (predeterminado 1080). La versión actual dirige todo el tráfico por el proxy.</li>
@@ -683,7 +708,7 @@
     </div>
     <h2>Proxy LAN / Proxy LAN por Wi‑Fi</h2>
     <ul>
-      <li><strong>Android</strong>: Detalles de Wi‑Fi → Proxy = Manual; host = IP de este dispositivo, puerto = puerto de la app. O configura HTTP/HTTPS en las apps.
+      <li><strong>Android</strong>: Detalles de Wi‑Fi → Proxy = Manual; host = IP del dispositivo host que comparte la VPN, puerto = puerto de la app. O configura HTTP/HTTPS en las apps.
         <div class="guide-image"><img src="img/guide_android.png" alt="Configuración de proxy en Android"></div>
       </li>
       <li><strong>iOS</strong>: Ajustes → Wi‑Fi → red actual → Configurar proxy = Manual; servidor = IP del host, puerto = puerto de la app (HTTP/HTTPS).
@@ -796,7 +821,7 @@
     <p>Utilisez cet appareil comme passerelle proxy LAN sur le même Wi‑Fi/point d’accès ; les autres appareils font transiter leur trafic via cet hôte (VPN du serveur hôte possible). Prend en charge les connexions simultanées de plusieurs appareils.</p>
     <h2>Paramètres de configuration</h2>
     <div class="guide-image"><img src="img/introduce.png" alt="Paramètres de configuration"></div>
-    <p>Hôte : 10.0.2.15:1080<br>IP de l’hôte : 10.0.2.15<br>Port de l’app : 1080<br>Remplacez l’IP et le port d’exemple par les valeurs réelles de votre appareil.<br>Si le Listener Port est indisponible ou occupé, choisissez n’importe quel port entre 1024–49151 ; la fonctionnalité est identique.</p>
+    <p>Hôte : 10.0.2.15:1080<br>IP de l’hôte : 10.0.2.15<br>Port de l’app : 1080<br>Remplacez l’IP et le port d’exemple par les valeurs réelles de l’appareil hôte qui partage le VPN.<br>Si le Listener Port est indisponible ou occupé, choisissez n’importe quel port entre 1024–49151 ; la fonctionnalité est identique.</p>
     <h2>Étapes côté hôte (avec VPN)</h2>
     <ol>
       <li>Ouvrez l’app, choisissez le mode proxy (recommandé « Détection auto ») et le port (1080 par défaut). La version actuelle force tout le trafic via ce proxy.</li>
@@ -966,7 +991,7 @@
     <p>Gunakan perangkat ini sebagai gateway proxy LAN pada Wi‑Fi/hotspot yang sama; perangkat lain meneruskan trafik lewat host ini (bisa ditumpuk dengan VPN host). Mendukung koneksi simultan banyak perangkat.</p>
     <h2>Parameter konfigurasi</h2>
     <div class="guide-image"><img src="img/introduce.png" alt="Parameter konfigurasi"></div>
-    <p>Host: 10.0.2.15:1080<br>IP host: 10.0.2.15<br>Port aplikasi: 1080<br>Ganti IP dan port contoh dengan nilai sebenarnya di perangkat Anda.<br>Jika Listener Port tidak tersedia atau sedang dipakai, pilih port apa pun antara 1024–49151; fungsinya sama.</p>
+    <p>Host: 10.0.2.15:1080<br>IP host: 10.0.2.15<br>Port aplikasi: 1080<br>Ganti IP dan port contoh dengan nilai sebenarnya di perangkat host yang membagikan VPN.<br>Jika Listener Port tidak tersedia atau sedang dipakai, pilih port apa pun antara 1024–49151; fungsinya sama.</p>
     <h2>Langkah di host (dengan VPN)</h2>
     <ol>
       <li>Buka app, pilih mode proxy (disarankan “Deteksi otomatis”) dan port (default 1080). Versi sekarang memaksa seluruh trafik lewat proxy.</li>
@@ -1023,7 +1048,7 @@
     </div>
     <h2>Proxy LAN / Proxy LAN Wi‑Fi</h2>
     <ul>
-      <li><strong>Android</strong>: Detail Wi‑Fi → Proxy = Manual; host = IP perangkat ini, port = port app. Atau isi HTTP/HTTPS di aplikasi.
+      <li><strong>Android</strong>: Detail Wi‑Fi → Proxy = Manual; host = IP perangkat host yang membagikan VPN, port = port app. Atau isi HTTP/HTTPS di aplikasi.
         <div class="guide-image"><img src="img/guide_android.png" alt="Pengaturan proxy Android"></div>
       </li>
       <li><strong>iOS</strong>: Settings → Wi‑Fi → jaringan saat ini → Configure Proxy = Manual; server = IP host, port = port app (HTTP/HTTPS).
@@ -1051,7 +1076,7 @@
     <p>同一の Wi‑Fi/ホットスポット内で本機を LAN プロキシ・ゲートウェイとして使用し、他のデバイスの通信を本機経由で転送します（ホストの VPN と併用可）。複数デバイスの同時接続に対応します。</p>
     <h2>設定パラメータ</h2>
     <div class="guide-image"><img src="img/introduce.png" alt="設定パラメータ"></div>
-    <p>ホスト: 10.0.2.15:1080<br>ホストIP: 10.0.2.15<br>アプリのポート: 1080<br>例のIPとポートをお使いの端末の実際の値に置き換えてください。<br>Listener Port が利用不可/使用中と表示された場合は、1024〜49151 の任意のポートを選んでください。機能は同じです。</p>
+    <p>ホスト: 10.0.2.15:1080<br>ホストIP: 10.0.2.15<br>アプリのポート: 1080<br>例のIPとポートを、VPN共有を提供するホスト端末の実際の値に置き換えてください。<br>Listener Port が利用不可/使用中と表示された場合は、1024〜49151 の任意のポートを選んでください。機能は同じです。</p>
     <h2>ホストの手順（VPNあり）</h2>
     <ol>
       <li>アプリを開き、プロキシモード（推奨「自動識別」）とポート（デフォルト 1080）を選択します。現行バージョンはすべてのトラフィックをプロキシ経由にします。</li>
@@ -1306,7 +1331,7 @@
     <p>Use este dispositivo na mesma rede Wi‑Fi/ponto de acesso como gateway proxy LAN; outros dispositivos enviam o tráfego por este host (pode ser combinado com a VPN do host). Suporta conexões simultâneas de vários dispositivos.</p>
     <h2>Parâmetros de configuração</h2>
     <div class="guide-image"><img src="img/introduce.png" alt="Parâmetros de configuração"></div>
-    <p>Host: 10.0.2.15:1080<br>IP do host: 10.0.2.15<br>Porta do app: 1080<br>Substitua o IP e a porta de exemplo pelos valores reais do seu dispositivo.<br>Se o Listener Port estiver indisponível ou em uso, escolha qualquer porta entre 1024–49151; a funcionalidade é a mesma.</p>
+    <p>Host: 10.0.2.15:1080<br>IP do host: 10.0.2.15<br>Porta do app: 1080<br>Substitua o IP e a porta de exemplo pelos valores reais do dispositivo host que compartilha a VPN.<br>Se o Listener Port estiver indisponível ou em uso, escolha qualquer porta entre 1024–49151; a funcionalidade é a mesma.</p>
     <h2>Passos no host (com VPN)</h2>
     <ol>
       <li>Abra o app, escolha o modo de proxy (recomendado “Detecção automática”) e a porta (padrão 1080). A versão atual força todo o tráfego pelo proxy.</li>
@@ -1363,7 +1388,7 @@
     </div>
     <h2>Proxy LAN / Proxy LAN via Wi‑Fi</h2>
     <ul>
-      <li><strong>Android</strong>: Detalhes do Wi‑Fi → Proxy = Manual; host = IP deste dispositivo, porta = porta do app. Ou preencha HTTP/HTTPS nos apps.
+      <li><strong>Android</strong>: Detalhes do Wi‑Fi → Proxy = Manual; host = IP do dispositivo host que compartilha a VPN, porta = porta do app. Ou preencha HTTP/HTTPS nos apps.
         <div class="guide-image"><img src="img/guide_android.png" alt="Configuração de proxy no Android"></div>
       </li>
       <li><strong>iOS</strong>: Ajustes → Wi‑Fi → rede atual → Configurar Proxy = Manual; servidor = IP do host, porta = porta do app (HTTP/HTTPS).
@@ -1391,7 +1416,7 @@
     <p>Используйте это устройство в той же сети Wi‑Fi/точке доступа как шлюз LAN‑прокси; трафик других устройств проходит через этот хост (можно комбинировать с VPN хоста). Поддерживаются одновременные подключения нескольких устройств.</p>
     <h2>Параметры конфигурации</h2>
     <div class="guide-image"><img src="img/introduce.png" alt="Параметры конфигурации"></div>
-    <p>Хост: 10.0.2.15:1080<br>IP хоста: 10.0.2.15<br>Порт приложения: 1080<br>Замените пример IP и порт на реальные значения вашего устройства.<br>Если Listener Port недоступен или занят, выберите любой порт в диапазоне 1024–49151 — функциональность не меняется.</p>
+    <p>Хост: 10.0.2.15:1080<br>IP хоста: 10.0.2.15<br>Порт приложения: 1080<br>Замените пример IP и порт на реальные значения хост-устройства, раздающего VPN.<br>Если Listener Port недоступен или занят, выберите любой порт в диапазоне 1024–49151 — функциональность не меняется.</p>
     <h2>Шаги на хосте (с VPN)</h2>
     <ol>
       <li>Откройте приложение, выберите режим прокси (рекомендуется «Автоопределение») и порт (по умолчанию 1080). Текущая версия направляет весь трафик через прокси.</li>
@@ -1476,7 +1501,7 @@
     <p>Tumia kifaa hiki kama lango la proksi la LAN katika Wi‑Fi/hotspot ile ile; trafiki ya vifaa vingine hupitia kwa host huyu (inaweza kuunganishwa na VPN ya host). Inasaidia kuunganisha vifaa vingi kwa wakati mmoja.</p>
     <h2>Vigezo vya usanidi</h2>
     <div class="guide-image"><img src="img/introduce.png" alt="Vigezo vya usanidi"></div>
-    <p>Hosti: 10.0.2.15:1080<br>IP ya hosti: 10.0.2.15<br>Bandari ya programu: 1080<br>Badilisha IP na bandari ya mfano na thamani halisi za kifaa chako.<br>Ikiwa Listener Port haipatikani au inatumika, chagua bandari yoyote kati ya 1024–49151; utendaji ni sawa.</p>
+    <p>Hosti: 10.0.2.15:1080<br>IP ya hosti: 10.0.2.15<br>Bandari ya programu: 1080<br>Badilisha IP na bandari ya mfano na thamani halisi za kifaa host kinachoshiriki VPN.<br>Ikiwa Listener Port haipatikani au inatumika, chagua bandari yoyote kati ya 1024–49151; utendaji ni sawa.</p>
     <h2>Hatua za host (na VPN)</h2>
     <ol>
       <li>Fungua app, chagua hali ya proksi (inapendekezwa “Utambuzi otomatiki”) na bandari (chaguo-msingi 1080). Toleo la sasa hupitisha trafiki yote kupitia proksi.</li>
@@ -1533,7 +1558,7 @@
     </div>
     <h2>Proksi ya LAN / Proksi ya LAN ya Wi‑Fi</h2>
     <ul>
-      <li><strong>Android</strong>: Maelezo ya Wi‑Fi → Proksi = Manual; host = IP ya kifaa hiki, bandari = bandari ya app. Au jaza HTTP/HTTPS ndani ya app.
+      <li><strong>Android</strong>: Maelezo ya Wi‑Fi → Proksi = Manual; host = IP ya kifaa host kinachoshiriki VPN, bandari = bandari ya app. Au jaza HTTP/HTTPS ndani ya app.
         <div class="guide-image"><img src="img/guide_android.png" alt="Mipangilio ya proksi Android"></div>
       </li>
       <li><strong>iOS</strong>: Settings → Wi‑Fi → mtandao wa sasa → Configure Proxy = Manual; seva = IP ya host, bandari = bandari ya app (HTTP/HTTPS).
@@ -1646,7 +1671,7 @@
     <p>Gamitin ang aparatong ito bilang LAN proxy gateway sa parehong Wi‑Fi/hotspot; dumaraan ang trapiko ng ibang device sa host na ito (puwedeng isabay sa VPN ng host). Sinusuportahan ang sabayang koneksyon ng maraming device.</p>
     <h2>Mga parameter ng pagsasaayos</h2>
     <div class="guide-image"><img src="img/introduce.png" alt="Mga parameter ng pagsasaayos"></div>
-    <p>Host: 10.0.2.15:1080<br>IP ng host: 10.0.2.15<br>Port ng app: 1080<br>Palitan ang halimbawang IP at port ng aktuwal na halaga ng iyong device.<br>Kung hindi available o ginagamit ang Listener Port, pumili ng alinmang port mula 1024–49151; pareho ang functionality.</p>
+    <p>Host: 10.0.2.15:1080<br>IP ng host: 10.0.2.15<br>Port ng app: 1080<br>Palitan ang halimbawang IP at port ng aktuwal na halaga ng host device na nagbabahagi ng VPN.<br>Kung hindi available o ginagamit ang Listener Port, pumili ng alinmang port mula 1024–49151; pareho ang functionality.</p>
     <h2>Mga hakbang ng host (may VPN)</h2>
     <ol>
       <li>Buksan ang app, piliin ang mode ng proxy (inirerekomenda ang “Auto-detect”) at ang port (default 1080). Sa kasalukuyang bersyon, lahat ng trapiko ay dumadaan sa proxy.</li>
@@ -1703,7 +1728,7 @@
     </div>
     <h2>LAN proxy / Wi‑Fi LAN proxy</h2>
     <ul>
-      <li><strong>Android</strong>: Wi‑Fi details → Proxy = Manual; host = IP ng aparatong ito, port = port ng app. O punan ang HTTP/HTTPS sa mga app.
+      <li><strong>Android</strong>: Wi‑Fi details → Proxy = Manual; host = IP ng host device na nagbabahagi ng VPN, port = port ng app. O punan ang HTTP/HTTPS sa mga app.
         <div class="guide-image"><img src="img/guide_android.png" alt="Pag-configure ng proxy sa Android"></div>
       </li>
       <li><strong>iOS</strong>: Settings → Wi‑Fi → kasalukuyang network → Configure Proxy = Manual; server = IP ng host, port = port ng app (HTTP/HTTPS).
@@ -1731,7 +1756,7 @@
     <p>Aynı Wi‑Fi/erişim noktasında bu cihazı LAN proxy geçidi olarak kullanın; diğer cihazların trafiği bu host üzerinden gider (host VPN’iyle birlikte kullanılabilir). Birden fazla cihazın aynı anda bağlanmasını destekler.</p>
     <h2>Yapılandırma parametreleri</h2>
     <div class="guide-image"><img src="img/introduce.png" alt="Yapılandırma parametreleri"></div>
-    <p>Ana makine: 10.0.2.15:1080<br>Ana makine IP: 10.0.2.15<br>Uygulama portu: 1080<br>Örnek IP ve portu cihazınızın gerçek değerleriyle değiştirin.<br>Listener Port kullanılamıyor veya meşgulse 1024–49151 arasından herhangi bir port seçin; işlev aynı kalır.</p>
+    <p>Ana makine: 10.0.2.15:1080<br>Ana makine IP: 10.0.2.15<br>Uygulama portu: 1080<br>Örnek IP ve portu VPN paylaşımı yapan ana cihazın gerçek değerleriyle değiştirin.<br>Listener Port kullanılamıyor veya meşgulse 1024–49151 arasından herhangi bir port seçin; işlev aynı kalır.</p>
     <h2>Host adımları (VPN ile)</h2>
     <ol>
       <li>Uygulamayı açın, proxy modunu seçin (“Otomatik algıla” önerilir) ve portu belirleyin (varsayılan 1080). Mevcut sürüm tüm trafiği proxy üzerinden yönlendirir.</li>
@@ -1788,7 +1813,7 @@
     </div>
     <h2>LAN proxy / Wi‑Fi LAN proxy</h2>
     <ul>
-      <li><strong>Android</strong>: Wi‑Fi ayrıntıları → Proxy = Manuel; host = bu cihazın IP’si, port = uygulama portu. Ya da uygulamalarda HTTP/HTTPS alanlarını doldurun.
+      <li><strong>Android</strong>: Wi‑Fi ayrıntıları → Proxy = Manuel; host = VPN paylaşımı yapan ana cihazın IP’si, port = uygulama portu. Ya da uygulamalarda HTTP/HTTPS alanlarını doldurun.
         <div class="guide-image"><img src="img/guide_android.png" alt="Android proxy kurulumu"></div>
       </li>
       <li><strong>iOS</strong>: Ayarlar → Wi‑Fi → mevcut ağ → Proxy’yi Yapılandır = Manuel; sunucu = host IP’si, port = uygulama portu (HTTP/HTTPS).
@@ -1816,7 +1841,7 @@
     <p>اسی Wi‑Fi/ہاٹ اسپات پر اس ڈیوائس کو LAN پراکسی گیٹ وے کے طور پر استعمال کریں؛ دیگر ڈیوائسز کی ٹریفک اس ہوسٹ سے گزرے گی (ہوسٹ VPN کے ساتھ مل کر استعمال کیا جا سکتا ہے)۔ ایک ہی وقت میں متعدد ڈیوائسز کے کنکشن کی سپورٹ ہے۔</p>
     <h2>ترتیباتی پیرامیٹرز</h2>
     <div class="guide-image"><img src="img/introduce.png" alt="ترتیباتی پیرامیٹرز"></div>
-    <p>ہوسٹ: 10.0.2.15:1080<br>ہوسٹ IP: 10.0.2.15<br>ایپ پورٹ: 1080<br>مثالی IP اور پورٹ کو اپنے ڈیوائس کی اصل قدروں سے بدلیں۔<br>اگر Listener Port دستیاب نہ ہو یا مصروف ہو تو 1024–49151 کے درمیان کوئی بھی پورٹ منتخب کریں؛ فنکشن میں کوئی فرق نہیں۔</p>
+    <p>ہوسٹ: 10.0.2.15:1080<br>ہوسٹ IP: 10.0.2.15<br>ایپ پورٹ: 1080<br>مثالی IP اور پورٹ کو VPN شیئر کرنے والے میزبان ڈیوائس کی اصل قدروں سے بدلیں۔<br>اگر Listener Port دستیاب نہ ہو یا مصروف ہو تو 1024–49151 کے درمیان کوئی بھی پورٹ منتخب کریں؛ فنکشن میں کوئی فرق نہیں۔</p>
     <h2>ہوسٹ کے مراحل (VPN کے ساتھ)</h2>
     <ol>
       <li>ایپ کھولیں، پراکسی موڈ منتخب کریں (تجویز “آٹو ڈٹیکٹ”) اور پورٹ منتخب کریں (ڈیفالٹ 1080)۔ موجودہ ورژن ساری ٹریفک پراکسی سے گزارتا ہے۔</li>
@@ -1873,7 +1898,7 @@
     </div>
     <h2>LAN پراکسی / Wi‑Fi LAN پراکسی</h2>
     <ul>
-      <li><strong>Android</strong>: Wi‑Fi تفصیل → پراکسی = Manual؛ ہوسٹ = اس ڈیوائس کا IP، پورٹ = ایپ کا پورٹ۔ یا ایپس میں HTTP/HTTPS درج کریں۔
+      <li><strong>Android</strong>: Wi‑Fi تفصیل → پراکسی = Manual؛ ہوسٹ = VPN شیئر کرنے والے میزبان ڈیوائس کا IP، پورٹ = ایپ کا پورٹ۔ یا ایپس میں HTTP/HTTPS درج کریں۔
         <div class="guide-image"><img src="img/guide_android.png" alt="Android پراکسی سیٹ اپ"></div>
       </li>
       <li><strong>iOS</strong>: Settings → Wi‑Fi → موجودہ نیٹ ورک → Configure Proxy = Manual؛ سرور = ہوسٹ IP، پورٹ = ایپ پورٹ (HTTP/HTTPS).
@@ -1958,7 +1983,7 @@
     </div>
     <h2>Proxy LAN / Proxy LAN qua Wi‑Fi</h2>
     <ul>
-      <li><strong>Android</strong>: Chi tiết Wi‑Fi → Proxy = Manual; host = IP của thiết bị này, port = cổng ứng dụng. Hoặc điền HTTP/HTTPS trong ứng dụng.
+      <li><strong>Android</strong>: Chi tiết Wi‑Fi → Proxy = Manual; host = IP của thiết bị host đang chia sẻ VPN, port = cổng ứng dụng. Hoặc điền HTTP/HTTPS trong ứng dụng.
         <div class="guide-image"><img src="img/guide_android.png" alt="Thiết lập proxy Android"></div>
       </li>
       <li><strong>iOS</strong>: Cài đặt → Wi‑Fi → mạng hiện tại → Cấu hình proxy = Manual; máy chủ = IP host, cổng = cổng ứng dụng (HTTP/HTTPS).
