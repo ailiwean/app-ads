@@ -12,6 +12,9 @@
     .lang-switch { margin: 12px 0 16px; }
     .lang-switch label { margin-right: 8px; font-weight: 600; }
     .lang-switch select { padding: 6px 10px; }
+    .open-browser-row { margin: 12px 0 6px; }
+    .open-browser-btn { display: inline-flex; align-items: center; justify-content: center; padding: 8px 14px; border-radius: 6px; background: #0a8a4b; color: #fff; text-decoration: none; font-weight: 600; }
+    .open-browser-btn:hover { background: #08733f; }
     .guide-image img { max-width: 100%; width: auto; height: auto; object-fit: contain; margin: 8px 0 12px; border: 1px solid #ddd; border-radius: 8px; }
     .guide-image img[src*="guide_"] { max-width: 500px; max-height: 500px; width: auto; height: auto; object-fit: contain; }
 
@@ -48,6 +51,8 @@
     .yaml-form button { background: #1f8f5a; }
     .yaml-form button:hover { background: #167347; }
     .yaml-output { color: #7ce694; }
+    .open-browser-btn { background: #1f8f5a; }
+    .open-browser-btn:hover { background: #167347; }
     .copy-btn { border-color: #7ce694; color: #7ce694; }
     .copy-btn:hover { background: rgba(124,230,148,0.12); }
     .notice-green { color: #7ce694; }
@@ -253,6 +258,28 @@
         'ur':'اگر سیٹ اَپ کے دوران کوئی سوال ہو تو مجھے <a class="contact-email" href="mailto:wenyuanshuai@gmail.com">wenyuanshuai@gmail.com</a> پر رابطہ کریں۔ میں 24 گھنٹوں کے اندر جواب دوں گا۔',
         'vi':'Nếu có thắc mắc trong quá trình cấu hình, hãy liên hệ tôi qua <a class="contact-email" href="mailto:wenyuanshuai@gmail.com">wenyuanshuai@gmail.com</a>. Tôi sẽ phản hồi trong vòng 24 giờ.'
       };
+      const openBrowserLabels = {
+        'en':'Open in browser',
+        'zh-CN':'用浏览器打开',
+        'ar':'افتح في المتصفح',
+        'de':'Im Browser öffnen',
+        'es':'Abrir en el navegador',
+        'fa':'باز کردن در مرورگر',
+        'fr':'Ouvrir dans le navigateur',
+        'hi':'ब्राउज़र में खोलें',
+        'id':'Buka di browser',
+        'ja':'ブラウザで開く',
+        'ko':'브라우저에서 열기',
+        'ms':'Buka di pelayar',
+        'pt':'Abrir no navegador',
+        'ru':'Открыть в браузере',
+        'sw':'Fungua kwenye kivinjari',
+        'th':'เปิดในเบราว์เซอร์',
+        'tl':'Buksan sa browser',
+        'tr':'Tarayıcıda aç',
+        'ur':'براؤزر میں کھولیں',
+        'vi':'Mở trong trình duyệt'
+      };
       const map = {'en':'en','zh':'zh-CN','zh-CN':'zh-CN','zh-TW':'zh-CN','ar':'ar','de':'de','es':'es','fa':'fa','fr':'fr','hi':'hi','id':'id','in':'id','ja':'ja','ko':'ko','ms':'ms','pt':'pt','pt-BR':'pt','ru':'ru','sw':'sw','th':'th','tl':'tl','tr':'tr','ur':'ur','vi':'vi'};
       const apply = (lang) => {
         document.querySelectorAll('.lang').forEach(el => el.style.display='none');
@@ -266,6 +293,8 @@
         if(p) p.textContent=intro[lang]||intro.en;
         const note=document.getElementById('host-ip-note');
         if(note) note.innerHTML=hostIpNotes[lang]||hostIpNotes.en;
+        const openBtn=document.getElementById('open-browser-btn');
+        if(openBtn) openBtn.textContent=openBrowserLabels[lang]||openBrowserLabels.en;
         const sel=document.getElementById('lang-select');
         if(sel) sel.value=lang;
       };
@@ -281,6 +310,9 @@
 </head>
 <body>
   <h1 id="title">Network Share User Guide</h1>
+  <div class="open-browser-row">
+    <a id="open-browser-btn" class="open-browser-btn" href="https://www.aiwean.xyz/app-policies/lanbridge/user-guide.html" target="_blank" rel="noopener">用浏览器打开</a>
+  </div>
   <div class="lang-switch">
     <label for="lang-select">Language / 语言：</label>
     <select id="lang-select">
@@ -578,12 +610,12 @@
       <li><strong>أجهزة أخرى</strong>: أدخل <span class="notice-green">IP المضيف</span> + <span class="notice-green">منفذ المضيف</span> في إعدادات وكيل HTTP/HTTPS/SOCKS5 المدعومة.</li>
     </ul>
         <h2>الوضع المعزز (ترحيل داخلي)</h2>
-    <p><strong>حالات الاستخدام:</strong> يحجب الـVPN الاتصالات الواردة من أجهزة LAN إلى المضيف، ويدعم هذا الـVPN ميزات مثل «استثناء التطبيقات/عدم استخدام VPN لكل تطبيق».</p>
+    <p><strong>حالات الاستخدام:</strong> يحجب الـVPN الاتصالات الواردة من أجهزة LAN إلى المضيف، و<span class="notice-green">يدعم</span> هذا الـVPN ميزات مثل «استثناء التطبيقات/عدم استخدام VPN لكل تطبيق».</p>
     <p><strong>طريقة الاستخدام:</strong> ثبّت أولًا ملحق الترحيل الداخلي (المكوّن المساعد) وامنحه الأذونات المطلوبة. في قائمة الاستثناءات/التطبيقات في الـVPN اضبط هذا الملحق على اتصال مباشر (بدون VPN). ثم اضبط الوكيل في الأجهزة الأخرى على IP المضيف ومنفذ المضيف، وأبقِ خدمة البوابة قيد التشغيل على المضيف.</p>
     <p><strong>آلية العمل:</strong> يتولى الملحق الاستماع المحلي والتواصل مع الشبكة المحلية، بينما يتولى التطبيق الرئيسي الوكيل وخروج الـVPN. يعمل الاثنان معًا على نفس الجهاز لإعادة التوجيه.</p>
     <p><strong>ملاحظات:</strong> يجب استثناء الملحق من الـVPN، وإلا ستُحتجز اتصالات LAN بواسطة الـVPN وتصبح غير متاحة. إذا لم تكن متأكدًا من صحة الإعداد، افتح تطبيق الملحق وتحقق من مؤشرات الحالة داخله.</p>
     <h2>الوضع المعزز (ترحيل خارجي)</h2>
-    <p><strong>حالات الاستخدام:</strong> يحجب الـVPN الاتصالات الواردة من أجهزة LAN إلى المضيف، ولا يدعم هذا الـVPN ميزات مثل «استثناء التطبيقات/عدم استخدام VPN لكل تطبيق».</p>
+    <p><strong>حالات الاستخدام:</strong> يحجب الـVPN الاتصالات الواردة من أجهزة LAN إلى المضيف، و<span class="notice-green">لا يدعم</span> هذا الـVPN ميزات مثل «استثناء التطبيقات/عدم استخدام VPN لكل تطبيق».</p>
     <p><strong>طريقة الاستخدام:</strong> على الجهاز الرئيسي فعّل الـVPN وشغّل مفتاح الترحيل الخارجي ثم اضغط المسح. على الجهاز المساعد أوقف الـVPN وشغّل مفتاح الترحيل الخارجي؛ سيظهر رمز QR. امسحه بالجهاز الرئيسي لإتمام الاتصال.</p>
     <p><strong>آلية العمل:</strong> يضيف الوضع المعزز جهازًا مساعدًا وينقل خدمة الوكيل إليه. يتصل المضيف (مع VPN) بالجهاز المساعد اتصالًا خارجيًا، يعيد البيانات ثم ينفذ الطلبات محليًا.</p>
     <p><strong>ملاحظات:</strong> يمكن للجهاز المساعد أيضًا إعداد الوكيل مثل الأجهزة الأخرى (وكيل VPN كامل النطاق / وكيل LAN / وكيل Wi‑Fi LAN) لاستخدام VPN الجهاز الرئيسي. إذا احتاج الجهاز المساعد إلى وكيل VPN كامل النطاق عبر Clash، فأوقف Clash (VPN) أولًا واتصل بالجهاز الرئيسي؛ وبعد نجاح الاتصال فعّل Clash (VPN) مرة أخرى. يميّز النظام حاليًا بين الجهاز الرئيسي والأجهزة المساعدة بناءً على تفعيل VPN من عدمه.</p>
@@ -671,12 +703,12 @@
       <li><strong>Andere Geräte</strong>: <span class="notice-green">Host-IP</span> + <span class="notice-green">Host-Port</span> in den HTTP/HTTPS/SOCKS5-Proxyfeldern des Geräts/der App eintragen.</li>
     </ul>
         <h2>Erweiterter Modus (Interne Weiterleitung)</h2>
-    <p><strong>Einsatzszenario:</strong> Das VPN blockiert eingehende Verbindungen von LAN‑Geräten zum Host, und dieses VPN unterstützt Funktionen wie „App‑Ausnahmen/Pro‑App‑Bypass“.</p>
+    <p><strong>Einsatzszenario:</strong> Das VPN blockiert eingehende Verbindungen von LAN‑Geräten zum Host, und dieses VPN <span class="notice-green">unterstützt</span> Funktionen wie „App‑Ausnahmen/Pro‑App‑Bypass“.</p>
     <p><strong>Vorgehen:</strong> Zuerst das Inbound‑Relay‑Plugin (Begleitkomponente) installieren und die Berechtigungen erteilen. In der VPN‑Liste für App‑Ausnahmen/Pro‑App den Plugin‑Verkehr auf Direktverbindung setzen (nicht über VPN). Dann auf anderen Geräten den Proxy mit Host‑IP und Host‑Port eintragen und den Gateway‑Dienst auf dem Host laufen lassen.</p>
     <p><strong>Funktionsweise:</strong> Das Plugin übernimmt lokales Lauschen und LAN‑Kommunikation, die Haupt‑App übernimmt Proxy und VPN‑Ausgang. Beide arbeiten lokal zusammen und leiten den Verkehr weiter.</p>
     <p><strong>Hinweise:</strong> Das Plugin muss vom VPN ausgeschlossen sein, sonst werden LAN‑Verbindungen vom VPN abgefangen und unbrauchbar. Wenn Sie unsicher sind, öffnen Sie die Plugin‑App und prüfen Sie die Statushinweise.</p>
     <h2>Erweiterter Modus (Externe Weiterleitung)</h2>
-    <p><strong>Einsatzszenario:</strong> Das VPN blockiert eingehende Verbindungen von LAN‑Geräten zum Host, und dieses VPN unterstützt keine Funktionen wie „App‑Ausnahmen/Pro‑App‑Bypass“.</p>
+    <p><strong>Einsatzszenario:</strong> Das VPN blockiert eingehende Verbindungen von LAN‑Geräten zum Host, und dieses VPN <span class="notice-green">unterstützt keine</span> Funktionen wie „App‑Ausnahmen/Pro‑App‑Bypass“.</p>
     <p><strong>Vorgehen:</strong> Auf dem Hauptgerät VPN einschalten und den Outbound‑Relay‑Schalter aktivieren, dann „Scannen“ tippen. Auf dem Begleitgerät VPN ausschalten und den Outbound‑Relay‑Schalter aktivieren; es erscheint ein QR‑Code. Mit dem Hauptgerät scannen, um die Verbindung herzustellen.</p>
     <p><strong>Funktionsweise:</strong> Der erweiterte Modus fügt ein Begleitgerät hinzu und verlagert den Proxy‑Dienst dorthin. Der Host (mit VPN) stellt eine ausgehende Verbindung zum Begleitgerät her, holt die Daten zurück und führt anschließend die Anfragen lokal aus.</p>
     <p><strong>Hinweise:</strong> Das Begleitgerät kann wie andere Geräte einen Proxy einrichten (Volltunnel‑VPN‑Proxy / LAN‑Proxy / Wi‑Fi‑LAN‑Proxy), um das VPN des Hauptgeräts zu nutzen. Wenn das Begleitgerät einen Volltunnel‑VPN‑Proxy über Clash benötigt, Clash (VPN) zuerst ausschalten, Verbindung zum Hauptgerät herstellen, dann Clash (VPN) wieder einschalten. Das System unterscheidet derzeit Haupt‑ und Begleitgeräte danach, ob VPN aktiviert ist.</p>
@@ -764,12 +796,12 @@
       <li><strong>Otros dispositivos</strong>: introduce <span class="notice-green">IP del host</span> + <span class="notice-green">puerto del host</span> en los ajustes de proxy HTTP/HTTPS/SOCKS5 que el equipo o la app admitan.</li>
     </ul>
         <h2>Modo mejorado (reenvío interno)</h2>
-    <p><strong>Caso de uso:</strong> El VPN bloquea conexiones entrantes de dispositivos LAN hacia el host, y este VPN admite funciones como “exclusión de apps/bypass por app”.</p>
+    <p><strong>Caso de uso:</strong> El VPN bloquea conexiones entrantes de dispositivos LAN hacia el host, y este VPN <span class="notice-green">admite</span> funciones como “exclusión de apps/bypass por app”.</p>
     <p><strong>Cómo usarlo:</strong> Primero instala el plugin de reenvío interno (componente complementario) y concede permisos. En la lista de exclusiones/per‑app del VPN, configura ese plugin como conexión directa (sin VPN). Luego configura el proxy en otros dispositivos con la IP y el puerto del host, y mantén el servicio de gateway en el host.</p>
     <p><strong>Cómo funciona:</strong> El plugin se encarga de la escucha local y la comunicación LAN; la app principal se encarga del proxy y de la salida VPN. Ambos cooperan localmente para reenviar el tráfico.</p>
     <p><strong>Notas:</strong> El plugin debe quedar excluido del VPN; de lo contrario, el VPN interceptará las conexiones LAN y no funcionarán. Si no estás seguro de la configuración, abre la app del plugin y revisa sus indicadores de estado.</p>
     <h2>Modo mejorado (reenvío externo)</h2>
-    <p><strong>Caso de uso:</strong> El VPN bloquea conexiones entrantes de dispositivos LAN hacia el host, y este VPN no admite funciones como “exclusión de apps/bypass por app”.</p>
+    <p><strong>Caso de uso:</strong> El VPN bloquea conexiones entrantes de dispositivos LAN hacia el host, y este VPN <span class="notice-green">no admite</span> funciones como “exclusión de apps/bypass por app”.</p>
     <p><strong>Cómo usarlo:</strong> En el dispositivo principal, activa el VPN y el interruptor de reenvío externo, y pulsa Escanear. En el dispositivo complementario, desactiva el VPN y activa el reenvío externo; se mostrará un código QR. Escanéalo con el dispositivo principal para establecer la conexión.</p>
     <p><strong>Cómo funciona:</strong> El modo mejorado añade un dispositivo complementario y mueve el servicio de proxy allí. El host (con VPN) se conecta hacia el dispositivo complementario, trae los datos y luego realiza las solicitudes localmente.</p>
     <p><strong>Notas:</strong> El dispositivo complementario también puede configurar el proxy como los demás (proxy VPN de túnel completo / proxy LAN / proxy LAN por Wi‑Fi) para usar el VPN del dispositivo principal. Si necesita un proxy VPN de túnel completo vía Clash, apaga Clash (VPN), conéctate primero al dispositivo principal y luego vuelve a encender Clash (VPN). El sistema distingue actualmente el dispositivo principal de los complementarios según si el VPN está habilitado.</p>
@@ -857,12 +889,12 @@
       <li><strong>دستگاه‌های دیگر</strong>: در تنظیمات پروکسی HTTP/HTTPS/SOCKS5 پشتیبانی‌شده، <span class="notice-green">IP میزبان</span> + <span class="notice-green">پورت میزبان</span> را وارد کنید.</li>
     </ul>
         <h2>حالت تقویت‌شده (انتقال داخلی)</h2>
-    <p><strong>سناریوی استفاده:</strong> VPN اتصال‌های ورودی از دستگاه‌های LAN به میزبان را مسدود می‌کند و این VPN از قابلیت‌هایی مانند «استثنا کردن برنامه/عبور ندادن VPN برای هر برنامه» پشتیبانی می‌کند.</p>
+    <p><strong>سناریوی استفاده:</strong> VPN اتصال‌های ورودی از دستگاه‌های LAN به میزبان را مسدود می‌کند و این VPN از قابلیت‌هایی مانند «استثنا کردن برنامه/عبور ندادن VPN برای هر برنامه» <span class="notice-green">پشتیبانی می‌کند</span>.</p>
     <p><strong>روش استفاده:</strong> ابتدا افزونهٔ انتقال داخلی (مولفهٔ همراه) را نصب کنید و مجوزها را طبق پیام‌ها بدهید. در فهرست استثنا/برنامه در VPN، این افزونه را روی اتصال مستقیم (بدون VPN) بگذارید. سپس در سایر دستگاه‌ها پروکسی را با IP و پورت میزبان تنظیم کنید و سرویس درگاه را روی میزبان فعال نگه دارید.</p>
     <p><strong>نحوه کار:</strong> افزونه مسئول گوش‌دادن محلی و ارتباط LAN است و برنامهٔ اصلی مسئول پروکسی و خروجی VPN. این دو روی همان دستگاه همکاری کرده و ترافیک را منتقل می‌کنند.</p>
     <p><strong>نکات:</strong> افزونه باید از VPN مستثنا باشد؛ در غیر این صورت اتصال‌های LAN توسط VPN منحرف می‌شود و قابل استفاده نخواهد بود. اگر مطمئن نیستید، برنامهٔ افزونه را باز کنید و وضعیت‌ها را بررسی کنید.</p>
     <h2>حالت تقویت‌شده (انتقال خارجی)</h2>
-    <p><strong>سناریوی استفاده:</strong> VPN اتصال‌های ورودی از دستگاه‌های LAN به میزبان را مسدود می‌کند و این VPN از قابلیت‌هایی مانند «استثنا کردن برنامه/عبور ندادن VPN برای هر برنامه» پشتیبانی نمی‌کند.</p>
+    <p><strong>سناریوی استفاده:</strong> VPN اتصال‌های ورودی از دستگاه‌های LAN به میزبان را مسدود می‌کند و این VPN از قابلیت‌هایی مانند «استثنا کردن برنامه/عبور ندادن VPN برای هر برنامه» <span class="notice-green">پشتیبانی نمی‌کند</span>.</p>
     <p><strong>روش استفاده:</strong> در دستگاه اصلی VPN را روشن و سوییچ انتقال خارجی را فعال کنید، سپس اسکن را بزنید. در دستگاه همراه VPN را خاموش و سوییچ انتقال خارجی را روشن کنید؛ کد QR نمایش داده می‌شود. با دستگاه اصلی اسکن کنید تا اتصال برقرار شود.</p>
     <p><strong>نحوه کار:</strong> حالت تقویت‌شده یک دستگاه همراه اضافه می‌کند و سرویس پروکسی را به آن منتقل می‌کند. میزبان (با VPN) به دستگاه همراه اتصال خروجی برقرار می‌کند، داده را برمی‌گرداند و سپس درخواست‌ها را محلی ارسال می‌کند.</p>
     <p><strong>نکات:</strong> دستگاه همراه می‌تواند مانند سایر دستگاه‌ها پروکسی را تنظیم کند (پروکسی VPN تمام‌ترافیک / پروکسی LAN / پروکسی LAN از طریق Wi‑Fi) تا از VPN دستگاه اصلی استفاده کند. اگر دستگاه همراه برای Clash به پروکسی VPN تمام‌ترافیک نیاز دارد، ابتدا Clash (VPN) را خاموش کنید و به دستگاه اصلی متصل شوید؛ پس از برقراری اتصال، Clash (VPN) را دوباره روشن کنید. سیستم در حال حاضر دستگاه اصلی و دستگاه‌های همراه را بر اساس فعال بودن VPN تشخیص می‌دهد.</p>
@@ -950,12 +982,12 @@
       <li><strong>Autres appareils</strong> : renseignez <span class="notice-green">IP hôte</span> + <span class="notice-green">port de l’hôte</span> dans les paramètres proxy HTTP/HTTPS/SOCKS5 pris en charge.</li>
     </ul>
         <h2>Mode renforcé (relais interne)</h2>
-    <p><strong>Cas d’usage:</strong> Le VPN bloque les connexions entrantes des appareils LAN vers l’hôte, et ce VPN prend en charge des fonctions comme « exclusion d’apps / contournement par app ».</p>
+    <p><strong>Cas d’usage:</strong> Le VPN bloque les connexions entrantes des appareils LAN vers l’hôte, et ce VPN <span class="notice-green">prend en charge</span> des fonctions comme « exclusion d’apps / contournement par app ».</p>
     <p><strong>Mode d’emploi:</strong> Installez d’abord le plugin de relais interne (composant compagnon) et accordez les autorisations demandées. Dans la liste d’exclusion/par‑app du VPN, réglez ce plugin en connexion directe (sans VPN). Ensuite, configurez le proxy sur les autres appareils avec l’IP et le port de l’hôte, et laissez le service de passerelle tourner sur l’hôte.</p>
     <p><strong>Fonctionnement:</strong> Le plugin assure l’écoute locale et la communication LAN, l’app principale assure le proxy et la sortie VPN. Les deux coopèrent localement pour relayer le trafic.</p>
     <p><strong>Remarques:</strong> Le plugin doit être exclu du VPN, sinon les connexions LAN seront interceptées par le VPN et deviendront indisponibles. En cas de doute, ouvrez l’app du plugin et vérifiez ses indicateurs d’état.</p>
     <h2>Mode renforcé (relais externe)</h2>
-    <p><strong>Cas d’usage:</strong> Le VPN bloque les connexions entrantes des appareils LAN vers l’hôte, et ce VPN ne prend pas en charge des fonctions comme « exclusion d’apps / contournement par app ».</p>
+    <p><strong>Cas d’usage:</strong> Le VPN bloque les connexions entrantes des appareils LAN vers l’hôte, et ce VPN <span class="notice-green">ne prend pas en charge</span> des fonctions comme « exclusion d’apps / contournement par app ».</p>
     <p><strong>Mode d’emploi:</strong> Sur l’appareil principal, activez le VPN et l’interrupteur de relais externe, puis touchez « Scanner ». Sur l’appareil compagnon, désactivez le VPN et activez le relais externe ; un QR code s’affiche. Scannez‑le avec l’appareil principal pour établir la connexion.</p>
     <p><strong>Fonctionnement:</strong> Le mode renforcé ajoute un appareil compagnon et y déplace le service proxy. L’hôte (avec VPN) se connecte en sortie à l’appareil compagnon, récupère les données puis effectue les requêtes localement.</p>
     <p><strong>Remarques:</strong> L’appareil compagnon peut aussi configurer un proxy comme les autres (proxy VPN tunnel complet / proxy LAN / proxy LAN via Wi‑Fi) pour utiliser le VPN de l’appareil principal. S’il a besoin d’un proxy VPN tunnel complet via Clash, coupez d’abord Clash (VPN), connectez‑vous à l’appareil principal, puis réactivez Clash (VPN) une fois la connexion établie. Le système distingue actuellement l’appareil principal des appareils compagnons selon l’activation du VPN.</p>
@@ -1043,12 +1075,12 @@
       <li><strong>अन्य डिवाइस</strong>: समर्थित HTTP/HTTPS/SOCKS5 प्रॉक्सी सेटिंग में <span class="notice-green">होस्ट IP</span> + <span class="notice-green">होस्ट पोर्ट</span> भरें।</li>
     </ul>
         <h2>एन्हांस्ड मोड (आंतरिक रिले)</h2>
-    <p><strong>उपयोग परिदृश्य:</strong> VPN LAN डिवाइस से होस्ट तक आने वाले कनेक्शन को रोकता है, और यह VPN “ऐप एक्सक्लूज़न/प्रति‑ऐप VPN बायपास” जैसी सुविधाएँ सपोर्ट करता है।</p>
+    <p><strong>उपयोग परिदृश्य:</strong> VPN LAN डिवाइस से होस्ट तक आने वाले कनेक्शन को रोकता है, और यह VPN “ऐप एक्सक्लूज़न/प्रति‑ऐप VPN बायपास” जैसी सुविधाएँ <span class="notice-green">सपोर्ट करता है</span>।</p>
     <p><strong>उपयोग विधि:</strong> सबसे पहले इनबाउंड रिले प्लगइन (कम्पैनियन घटक) इंस्टॉल करें और माँगी गई अनुमतियाँ दें। VPN की पर‑ऐप/एक्सक्लूज़न सूची में इस प्लगइन को डायरेक्ट कनेक्शन (VPN से बाहर) पर सेट करें। फिर अन्य डिवाइस पर प्रॉक्सी को होस्ट IP और पोर्ट से सेट करें, और होस्ट पर गेटवे सेवा चालू रखें।</p>
     <p><strong>कार्य‑प्रणाली:</strong> प्लगइन लोकल लिसनिंग और LAN संचार संभालता है, मुख्य ऐप प्रॉक्सी और VPN आउटबाउंड संभालता है। दोनों एक ही डिवाइस पर मिलकर ट्रैफ़िक फ़ॉरवर्ड करते हैं।</p>
     <p><strong>ध्यान दें:</strong> प्लगइन को VPN से बाहर रखना ज़रूरी है, वरना VPN LAN कनेक्शन को हाइजैक कर देगा और वे काम नहीं करेंगे। अगर कॉन्फ़िगरेशन पर संदेह हो, प्लगइन ऐप खोलकर उसकी स्थिति संकेत देखें।</p>
     <h2>एन्हांस्ड मोड (बाहरी रिले)</h2>
-    <p><strong>उपयोग परिदृश्य:</strong> VPN LAN डिवाइस से होस्ट तक आने वाले कनेक्शन को रोकता है, और यह VPN “ऐप एक्सक्लूज़न/प्रति‑ऐप VPN बायपास” जैसी सुविधाएँ सपोर्ट नहीं करता।</p>
+    <p><strong>उपयोग परिदृश्य:</strong> VPN LAN डिवाइस से होस्ट तक आने वाले कनेक्शन को रोकता है, और यह VPN “ऐप एक्सक्लूज़न/प्रति‑ऐप VPN बायपास” जैसी सुविधाएँ <span class="notice-green">सपोर्ट नहीं करता</span>।</p>
     <p><strong>उपयोग विधि:</strong> मुख्य डिवाइस पर VPN चालू करें और आउटबाउंड रिले स्विच ऑन करके स्कैन पर टैप करें। सहायक डिवाइस पर VPN बंद करें और आउटबाउंड रिले स्विच ऑन करें; वहाँ QR कोड दिखेगा। कनेक्शन बनाने के लिए मुख्य डिवाइस से QR स्कैन करें।</p>
     <p><strong>कार्य‑प्रणाली:</strong> एन्हांस्ड मोड एक सहायक डिवाइस जोड़ता है और प्रॉक्सी सेवा को उस पर शिफ्ट करता है। होस्ट (VPN के साथ) सहायक डिवाइस से आउटबाउंड कनेक्शन करता है, डेटा वापस लाता है और फिर लोकली अनुरोध करता है।</p>
     <p><strong>ध्यान दें:</strong> सहायक डिवाइस भी अन्य डिवाइस की तरह प्रॉक्सी सेट कर सकता है (फुल‑टनल VPN प्रॉक्सी / LAN प्रॉक्सी / Wi‑Fi LAN प्रॉक्सी) ताकि मुख्य डिवाइस का VPN उपयोग हो। अगर सहायक डिवाइस को Clash के जरिए फुल‑टनल VPN प्रॉक्सी चाहिए, तो पहले Clash (VPN) बंद करें, मुख्य डिवाइस से कनेक्ट करें, और कनेक्शन बनने के बाद Clash (VPN) फिर चालू करें। सिस्टम अभी मुख्य और सहायक डिवाइस को VPN चालू/बंद के आधार पर अलग करता है।</p>
@@ -1136,12 +1168,12 @@
       <li><strong>Perangkat lain</strong>: isi <span class="notice-green">IP host</span> + <span class="notice-green">port host</span> di pengaturan proxy HTTP/HTTPS/SOCKS5 yang didukung.</li>
     </ul>
         <h2>Mode diperkuat (relay masuk)</h2>
-    <p><strong>Skenario penggunaan:</strong> VPN memblokir koneksi masuk dari perangkat LAN ke host, dan VPN ini mendukung fitur seperti “pengecualian aplikasi/bypass per‑app”.</p>
+    <p><strong>Skenario penggunaan:</strong> VPN memblokir koneksi masuk dari perangkat LAN ke host, dan VPN ini <span class="notice-green">mendukung</span> fitur seperti “pengecualian aplikasi/bypass per‑app”.</p>
     <p><strong>Cara pakai:</strong> Pertama instal plugin relay masuk (komponen pendamping) dan beri izin sesuai petunjuk. Di daftar per‑app/pengecualian VPN, setel plugin ini ke koneksi langsung (tanpa VPN). Lalu atur proxy di perangkat lain dengan IP host dan port host, dan biarkan layanan gateway berjalan di host.</p>
     <p><strong>Cara kerja:</strong> Plugin menangani listening lokal dan komunikasi LAN, aplikasi utama menangani proxy dan keluaran VPN. Keduanya bekerja sama secara lokal untuk meneruskan lalu lintas.</p>
     <p><strong>Catatan:</strong> Plugin harus dikecualikan dari VPN; jika tidak, koneksi LAN akan diambil alih VPN dan tidak bisa digunakan. Jika ragu, buka aplikasi plugin dan cek indikator statusnya.</p>
     <h2>Mode diperkuat (relay keluar)</h2>
-    <p><strong>Skenario penggunaan:</strong> VPN memblokir koneksi masuk dari perangkat LAN ke host, dan VPN ini tidak mendukung fitur seperti “pengecualian aplikasi/bypass per‑app”.</p>
+    <p><strong>Skenario penggunaan:</strong> VPN memblokir koneksi masuk dari perangkat LAN ke host, dan VPN ini <span class="notice-green">tidak mendukung</span> fitur seperti “pengecualian aplikasi/bypass per‑app”.</p>
     <p><strong>Cara pakai:</strong> Di perangkat utama, aktifkan VPN dan nyalakan sakelar relay keluar, lalu ketuk pindai. Di perangkat pendamping, matikan VPN dan nyalakan relay keluar; akan muncul kode QR. Pindai dengan perangkat utama untuk membuat koneksi.</p>
     <p><strong>Cara kerja:</strong> Mode diperkuat menambah perangkat pendamping dan memindahkan layanan proxy ke sana. Host (dengan VPN) membuat koneksi keluar ke perangkat pendamping, membawa data kembali, lalu melakukan permintaan secara lokal.</p>
     <p><strong>Catatan:</strong> Perangkat pendamping juga bisa mengatur proxy seperti perangkat lain (proxy VPN full‑tunnel / proxy LAN / proxy LAN via Wi‑Fi) untuk memakai VPN perangkat utama. Jika perangkat pendamping butuh proxy VPN full‑tunnel via Clash, matikan Clash (VPN) dulu, sambungkan ke perangkat utama, lalu nyalakan Clash (VPN) setelah koneksi terbentuk. Sistem saat ini membedakan perangkat utama dan pendamping berdasarkan apakah VPN diaktifkan.</p>
@@ -1229,12 +1261,12 @@
       <li><strong>その他のデバイス</strong>: デバイス/アプリの HTTP/HTTPS/SOCKS5 プロキシ欄に<span class="notice-green">ホスト IP</span>と<span class="notice-green">ホストポート</span>を入力します。</li>
     </ul>
         <h2>強化モード（内転送）</h2>
-    <p><strong>適用場面:</strong> VPN が LAN デバイスからホストへの受信接続を遮断し、かつその VPN が「アプリ除外/アプリ単位で VPN を使わない」機能をサポートしている場合。</p>
+    <p><strong>適用場面:</strong> VPN が LAN デバイスからホストへの受信接続を遮断し、かつその VPN が「アプリ除外/アプリ単位で VPN を使わない」機能を<span class="notice-green">サポートしている</span>場合。</p>
     <p><strong>使い方:</strong> まず内転送プラグイン（協同コンポーネント）をインストールして案内に従い権限を付与します。VPN のアプリ別/除外リストでこのプラグインを直通（VPN を通さない）に設定してください。その後、他の端末のプロキシにホスト IP とホストポートを設定し、ホストのゲートウェイサービスを稼働させます。</p>
     <p><strong>仕組み:</strong> プラグインがローカルのリッスンと LAN 通信を担当し、メインアプリがプロキシと VPN 出口を担当します。両者が同一端末上で連携して転送します。</p>
     <p><strong>注意事項:</strong> プラグインは VPN の除外対象にする必要があります。そうしないと LAN 接続が VPN に奪われ利用できなくなります。設定に不安がある場合はプラグインアプリを開き、表示される状態を確認してください。</p>
     <h2>強化モード（外転送）</h2>
-    <p><strong>適用場面:</strong> VPN が LAN デバイスからホストへの受信接続を遮断し、かつその VPN が「アプリ除外/アプリ単位で VPN を使わない」機能をサポートしていない場合。</p>
+    <p><strong>適用場面:</strong> VPN が LAN デバイスからホストへの受信接続を遮断し、かつその VPN が「アプリ除外/アプリ単位で VPN を使わない」機能を<span class="notice-green">サポートしていない</span>場合。</p>
     <p><strong>使い方:</strong> メイン端末で VPN を有効にし外転送スイッチをオンにして「スキャン」をタップします。協同端末では VPN をオフにして外転送スイッチをオンにすると QR コードが表示されます。メイン端末で QR を読み取って接続します。</p>
     <p><strong>仕組み:</strong> 強化モードは協同端末を追加してプロキシサービスをそちらへ移します。ホスト（VPN 使用端末）は協同端末へ外向きに接続し、データを持ち帰ってからローカルでリクエストを行います。</p>
     <p><strong>注意事項:</strong> 協同端末も他の端末と同様にプロキシを設定できます（フルトンネル VPN プロキシ / LAN プロキシ / Wi‑Fi LAN プロキシ）ので、メイン端末の VPN を利用できます。協同端末が Clash でフルトンネル VPN プロキシを使う必要がある場合は、まず Clash（VPN）をオフにしてメイン端末に接続し、接続後に Clash（VPN）を再度オンにしてください。現在のシステムは VPN の有効/無効でメイン端末と協同端末を区別します。</p>
@@ -1322,12 +1354,12 @@
       <li><strong>기타 장치</strong>: 기기/앱에서 지원하는 HTTP/HTTPS/SOCKS5 프록시 설정에 <span class="notice-green">호스트 IP</span> + <span class="notice-green">호스트 포트</span>를 입력합니다.</li>
     </ul>
         <h2>향상 모드(내부 전달)</h2>
-    <p><strong>적용 상황:</strong> VPN이 LAN 장치에서 호스트로 들어오는 연결을 차단하고, 해당 VPN이 “앱 제외/앱별 VPN 우회” 기능을 지원하는 경우.</p>
+    <p><strong>적용 상황:</strong> VPN이 LAN 장치에서 호스트로 들어오는 연결을 차단하고, 해당 VPN이 “앱 제외/앱별 VPN 우회” 기능을 <span class="notice-green">지원하는</span> 경우.</p>
     <p><strong>사용 방법:</strong> 먼저 내부 릴레이 플러그인(협동 구성요소)을 설치하고 안내에 따라 권한을 허용합니다. VPN의 앱별/제외 목록에서 이 플러그인을 직결(VPN 미사용)로 설정하세요. 그런 다음 다른 장치의 프록시에 호스트 IP와 호스트 포트를 입력하고, 호스트에서 게이트웨이 서비스를 계속 실행합니다.</p>
     <p><strong>동작 원리:</strong> 플러그인은 로컬 리스닝과 LAN 통신을 담당하고, 메인 앱은 프록시와 VPN 출구를 담당합니다. 두 구성 요소가 같은 장치에서 협업해 트래픽을 전달합니다.</p>
     <p><strong>주의 사항:</strong> 플러그인은 반드시 VPN에서 제외해야 합니다. 그렇지 않으면 LAN 연결이 VPN에 가로채져 사용할 수 없습니다. 설정이 확실하지 않다면 플러그인 앱을 열고 상태 표시를 확인하세요.</p>
     <h2>향상 모드(외부 전달)</h2>
-    <p><strong>적용 상황:</strong> VPN이 LAN 장치에서 호스트로 들어오는 연결을 차단하고, 해당 VPN이 “앱 제외/앱별 VPN 우회” 기능을 지원하지 않는 경우.</p>
+    <p><strong>적용 상황:</strong> VPN이 LAN 장치에서 호스트로 들어오는 연결을 차단하고, 해당 VPN이 “앱 제외/앱별 VPN 우회” 기능을 <span class="notice-green">지원하지 않는</span> 경우.</p>
     <p><strong>사용 방법:</strong> 메인 장치에서 VPN을 켠 뒤 외부 릴레이 스위치를 켜고 스캔을 누릅니다. 협동 장치에서는 VPN을 끄고 외부 릴레이 스위치를 켜면 QR 코드가 표시됩니다. 메인 장치로 스캔해 연결합니다.</p>
     <p><strong>동작 원리:</strong> 향상 모드는 협동 장치를 추가하고 프록시 서비스를 그쪽으로 이동합니다. 호스트(VPN 사용 장치)는 협동 장치로 아웃바운드 연결을 만들고, 데이터를 가져온 뒤 로컬에서 요청을 수행합니다.</p>
     <p><strong>주의 사항:</strong> 협동 장치도 다른 장치처럼 프록시를 설정할 수 있습니다(전체 터널 VPN 프록시 / LAN 프록시 / Wi‑Fi LAN 프록시)하여 메인 장치의 VPN을 사용할 수 있습니다. 협동 장치가 Clash로 전체 터널 VPN 프록시가 필요하면, 먼저 Clash(VPN)를 끄고 메인 장치에 연결한 뒤, 연결이 완료되면 Clash(VPN)를 다시 켜세요. 현재 시스템은 VPN 활성화 여부로 메인 장치와 협동 장치를 구분합니다.</p>
@@ -1415,12 +1447,12 @@
       <li><strong>Peranti lain</strong>: isi <span class="notice-green">IP hos</span> + <span class="notice-green">port hos</span> dalam tetapan proksi HTTP/HTTPS/SOCKS5 yang disokong.</li>
     </ul>
         <h2>Mod dipertingkat (relay masuk)</h2>
-    <p><strong>Senario penggunaan:</strong> VPN menyekat sambungan masuk daripada peranti LAN ke hos, dan VPN ini menyokong ciri seperti “pengecualian aplikasi/bypass per‑app”.</p>
+    <p><strong>Senario penggunaan:</strong> VPN menyekat sambungan masuk daripada peranti LAN ke hos, dan VPN ini <span class="notice-green">menyokong</span> ciri seperti “pengecualian aplikasi/bypass per‑app”.</p>
     <p><strong>Cara guna:</strong> Mula‑mula pasang plugin relay masuk (komponen pendamping) dan berikan kebenaran seperti diminta. Dalam senarai pengecualian/per‑app VPN, tetapkan plugin ini kepada sambungan terus (tanpa VPN). Kemudian tetapkan proksi pada peranti lain dengan IP hos dan port hos, dan biarkan perkhidmatan gateway berjalan pada hos.</p>
     <p><strong>Cara berfungsi:</strong> Plugin mengendalikan pendengaran setempat dan komunikasi LAN, manakala aplikasi utama mengendalikan proksi dan keluar VPN. Kedua‑duanya bekerjasama secara tempatan untuk meneruskan trafik.</p>
     <p><strong>Nota:</strong> Plugin mesti dikecualikan daripada VPN; jika tidak, sambungan LAN akan dirampas oleh VPN dan tidak boleh digunakan. Jika tidak pasti, buka aplikasi plugin dan semak penunjuk status.</p>
     <h2>Mod dipertingkat (relay keluar)</h2>
-    <p><strong>Senario penggunaan:</strong> VPN menyekat sambungan masuk daripada peranti LAN ke hos, dan VPN ini tidak menyokong ciri seperti “pengecualian aplikasi/bypass per‑app”.</p>
+    <p><strong>Senario penggunaan:</strong> VPN menyekat sambungan masuk daripada peranti LAN ke hos, dan VPN ini <span class="notice-green">tidak menyokong</span> ciri seperti “pengecualian aplikasi/bypass per‑app”.</p>
     <p><strong>Cara guna:</strong> Pada peranti utama, hidupkan VPN dan suis relay keluar, kemudian ketik imbas. Pada peranti pendamping, matikan VPN dan hidupkan relay keluar; kod QR akan dipaparkan. Imbas dengan peranti utama untuk membuat sambungan.</p>
     <p><strong>Cara berfungsi:</strong> Mod dipertingkat menambah peranti pendamping dan memindahkan perkhidmatan proksi ke peranti itu. Hos (dengan VPN) membuat sambungan keluar ke peranti pendamping, membawa balik data, kemudian membuat permintaan secara tempatan.</p>
     <p><strong>Nota:</strong> Peranti pendamping juga boleh mengkonfigurasi proksi seperti peranti lain (proksi VPN terowong penuh / proksi LAN / proksi LAN melalui Wi‑Fi) untuk menggunakan VPN peranti utama. Jika peranti pendamping memerlukan proksi VPN terowong penuh melalui Clash, matikan Clash (VPN) dahulu, sambung ke peranti utama, kemudian hidupkan semula Clash (VPN) selepas sambungan berjaya. Sistem kini membezakan peranti utama dan pendamping berdasarkan sama ada VPN diaktifkan.</p>
@@ -1508,12 +1540,12 @@
       <li><strong>Outros dispositivos</strong>: preencha <span class="notice-green">IP do host</span> + <span class="notice-green">porta do host</span> nas configurações de proxy HTTP/HTTPS/SOCKS5 suportadas.</li>
     </ul>
         <h2>Modo aprimorado (reencaminhamento interno)</h2>
-    <p><strong>Cenário de uso:</strong> O VPN bloqueia conexões de entrada de dispositivos LAN para o host, e este VPN oferece recursos como “exclusão de apps/bypass por app”.</p>
+    <p><strong>Cenário de uso:</strong> O VPN bloqueia conexões de entrada de dispositivos LAN para o host, e este VPN <span class="notice-green">oferece</span> recursos como “exclusão de apps/bypass por app”.</p>
     <p><strong>Como usar:</strong> Primeiro instale o plugin de relay interno (componente complementar) e conceda as permissões solicitadas. Na lista de exclusões/per‑app do VPN, defina esse plugin como conexão direta (sem VPN). Em seguida, configure o proxy nos outros dispositivos com o IP e a porta do host, e mantenha o serviço de gateway rodando no host.</p>
     <p><strong>Como funciona:</strong> O plugin cuida da escuta local e da comunicação LAN; o app principal cuida do proxy e da saída do VPN. Os dois cooperam localmente para encaminhar o tráfego.</p>
     <p><strong>Observações:</strong> O plugin deve ficar fora do VPN; caso contrário, as conexões LAN serão interceptadas pelo VPN e ficarão indisponíveis. Se tiver dúvida, abra o app do plugin e verifique os indicadores de status.</p>
     <h2>Modo aprimorado (reencaminhamento externo)</h2>
-    <p><strong>Cenário de uso:</strong> O VPN bloqueia conexões de entrada de dispositivos LAN para o host, e este VPN não oferece recursos como “exclusão de apps/bypass por app”.</p>
+    <p><strong>Cenário de uso:</strong> O VPN bloqueia conexões de entrada de dispositivos LAN para o host, e este VPN <span class="notice-green">não oferece</span> recursos como “exclusão de apps/bypass por app”.</p>
     <p><strong>Como usar:</strong> No dispositivo principal, ative o VPN e ligue o relay externo, depois toque em “Escanear”. No dispositivo complementar, desative o VPN e ligue o relay externo; um QR code será exibido. Use o dispositivo principal para escanear e estabelecer a conexão.</p>
     <p><strong>Como funciona:</strong> O modo aprimorado adiciona um dispositivo complementar e move o serviço de proxy para ele. O host (com VPN) faz uma conexão de saída com o dispositivo complementar, traz os dados de volta e então faz as requisições localmente.</p>
     <p><strong>Observações:</strong> O dispositivo complementar também pode configurar o proxy como os demais (proxy VPN de túnel completo / proxy LAN / proxy LAN via Wi‑Fi) para usar o VPN do dispositivo principal. Se precisar de proxy VPN de túnel completo via Clash, desligue o Clash (VPN) primeiro, conecte‑se ao dispositivo principal e, após a conexão, ligue o Clash (VPN) novamente. O sistema distingue atualmente o dispositivo principal dos complementares com base na ativação do VPN.</p>
@@ -1601,12 +1633,12 @@
       <li><strong>Другие устройства</strong>: в полях прокси HTTP/HTTPS/SOCKS5 устройства/приложения укажите <span class="notice-green">IP хоста</span> + <span class="notice-green">порт хоста</span>.</li>
     </ul>
         <h2>Усиленный режим (внутренняя переадресация)</h2>
-    <p><strong>Сценарий:</strong> VPN блокирует входящие соединения с устройств LAN к хосту, и этот VPN поддерживает функции вроде «исключение приложений/обход VPN по приложениям».</p>
+    <p><strong>Сценарий:</strong> VPN блокирует входящие соединения с устройств LAN к хосту, и этот VPN <span class="notice-green">поддерживает</span> функции вроде «исключение приложений/обход VPN по приложениям».</p>
     <p><strong>Как использовать:</strong> Сначала установите плагин внутреннего реле (сопутствующий компонент) и выдайте необходимые разрешения. В списке исключений/по приложениям VPN установите этому плагину прямое подключение (без VPN). Затем на других устройствах настройте прокси на IP и порт хоста и оставьте сервис шлюза на хосте включенным.</p>
     <p><strong>Как работает:</strong> Плагин отвечает за локальное прослушивание и LAN‑связь, основное приложение отвечает за прокси и VPN‑выход. Они совместно пересылают трафик локально на одном устройстве.</p>
     <p><strong>Примечания:</strong> Плагин должен быть исключен из VPN, иначе LAN‑соединения будут перехвачены VPN и станут недоступны. Если не уверены в настройке, откройте приложение плагина и проверьте его индикаторы состояния.</p>
     <h2>Усиленный режим (внешняя переадресация)</h2>
-    <p><strong>Сценарий:</strong> VPN блокирует входящие соединения с устройств LAN к хосту, и этот VPN не поддерживает функции вроде «исключение приложений/обход VPN по приложениям».</p>
+    <p><strong>Сценарий:</strong> VPN блокирует входящие соединения с устройств LAN к хосту, и этот VPN <span class="notice-green">не поддерживает</span> функции вроде «исключение приложений/обход VPN по приложениям».</p>
     <p><strong>Как использовать:</strong> На основном устройстве включите VPN и переключатель внешнего реле, затем нажмите «Сканировать». На вспомогательном устройстве выключите VPN и включите внешнее реле — появится QR‑код. Отсканируйте его основным устройством для установления соединения.</p>
     <p><strong>Как работает:</strong> Усиленный режим добавляет вспомогательное устройство и переносит на него службу прокси. Хост (с VPN) устанавливает исходящее соединение с вспомогательным устройством, возвращает данные и затем выполняет запросы локально.</p>
     <p><strong>Примечания:</strong> Вспомогательное устройство также может настроить прокси как другие устройства (полнотуннельный VPN‑прокси / LAN‑прокси / Wi‑Fi LAN‑прокси), используя VPN основного устройства. Если вспомогательному устройству нужен полнотуннельный VPN‑прокси через Clash, сначала выключите Clash (VPN), подключитесь к основному устройству, а после установления соединения снова включите Clash (VPN). Сейчас система различает основное и вспомогательные устройства по признаку включенного VPN.</p>
@@ -1694,12 +1726,12 @@
       <li><strong>Vifaa vingine</strong>: ingiza <span class="notice-green">IP ya hosti</span> + <span class="notice-green">bandari ya hosti</span> kwenye mipangilio ya proksi ya HTTP/HTTPS/SOCKS5 inayotolewa.</li>
     </ul>
         <h2>Hali iliyoimarishwa (relay ya ndani)</h2>
-    <p><strong>Hali ya matumizi:</strong> VPN huzuia miunganisho ya kuingia kutoka vifaa vya LAN kwenda kwa host, na VPN hii inaunga mkono vipengele kama “kuondoa app/kupitisha VPN kwa kila app”.</p>
+    <p><strong>Hali ya matumizi:</strong> VPN huzuia miunganisho ya kuingia kutoka vifaa vya LAN kwenda kwa host, na VPN hii <span class="notice-green">inaunga mkono</span> vipengele kama “kuondoa app/kupitisha VPN kwa kila app”.</p>
     <p><strong>Jinsi ya kutumia:</strong> Kwanza sakinisha programu-jalizi ya relay ya ndani (sehemu ya msaidizi) na utoe ruhusa zinazohitajika. Katika orodha ya ubaguzi/per‑app ya VPN, weka programu-jalizi hii iwe muunganisho wa moja kwa moja (bila VPN). Kisha weka proksi kwenye vifaa vingine kwa IP ya host na port ya host, na uendelee kuendesha huduma ya gateway kwenye host.</p>
     <p><strong>Jinsi inavyofanya kazi:</strong> Programu-jalizi hushughulikia kusikiliza ndani na mawasiliano ya LAN; programu kuu hushughulikia proksi na kutoka kwa VPN. Zote hushirikiana ndani ya kifaa hicho kusambaza trafiki.</p>
     <p><strong>Vidokezo:</strong> Programu-jalizi lazima iondolewe kwenye VPN; vinginevyo miunganisho ya LAN itatekwa na VPN na haitapatikana. Ukiwa na shaka, fungua programu ya programu‑jalizi na angalia viashiria vya hali.</p>
     <h2>Hali iliyoimarishwa (relay ya nje)</h2>
-    <p><strong>Hali ya matumizi:</strong> VPN huzuia miunganisho ya kuingia kutoka vifaa vya LAN kwenda kwa host, na VPN hii haiungi mkono vipengele kama “kuondoa app/kupitisha VPN kwa kila app”.</p>
+    <p><strong>Hali ya matumizi:</strong> VPN huzuia miunganisho ya kuingia kutoka vifaa vya LAN kwenda kwa host, na VPN hii <span class="notice-green">haiungi mkono</span> vipengele kama “kuondoa app/kupitisha VPN kwa kila app”.</p>
     <p><strong>Jinsi ya kutumia:</strong> Kwenye kifaa kikuu, washa VPN na swichi ya relay ya nje kisha gusa skani. Kwenye kifaa msaidizi, zima VPN na washa relay ya nje; itaonyesha msimbo wa QR. Tumia kifaa kikuu kuskani ili kuanzisha muunganisho.</p>
     <p><strong>Jinsi inavyofanya kazi:</strong> Hali iliyoimarishwa huongeza kifaa msaidizi na kuhamisha huduma ya proksi huko. Host (yenye VPN) huunganisha kutoka nje kwenda kwa kifaa msaidizi, huleta data kisha hufanya maombi ndani.</p>
     <p><strong>Vidokezo:</strong> Kifaa msaidizi pia kinaweza kusanidi proksi kama vifaa vingine (proksi ya VPN full‑tunnel / proksi ya LAN / proksi ya LAN kupitia Wi‑Fi) ili kutumia VPN ya kifaa kikuu. Ikiwa kifaa msaidizi kinahitaji proksi ya VPN full‑tunnel kupitia Clash, zima Clash (VPN) kwanza, unganisha kwenye kifaa kikuu, kisha washa tena Clash (VPN) baada ya muunganisho kuundwa. Mfumo kwa sasa hutofautisha kifaa kikuu na vya msaidizi kwa kuangalia ikiwa VPN imewezeshwa.</p>
@@ -1787,12 +1819,12 @@
       <li><strong>อุปกรณ์อื่น</strong>: กรอก <span class="notice-green">IP โฮสต์</span> + <span class="notice-green">พอร์ตโฮสต์</span>ในช่องตั้งค่าพร็อกซี HTTP/HTTPS/SOCKS5 ที่อุปกรณ์/แอปมีให้</li>
     </ul>
         <h2>โหมดเสริม (ส่งต่อภายใน)</h2>
-    <p><strong>สถานการณ์ใช้งาน:</strong> VPN บล็อกการเชื่อมต่อขาเข้าจากอุปกรณ์ LAN ไปยังโฮสต์ และ VPN นี้รองรับฟีเจอร์อย่าง “ยกเว้นแอป/ไม่ผ่าน VPN ต่อแอป”.</p>
+    <p><strong>สถานการณ์ใช้งาน:</strong> VPN บล็อกการเชื่อมต่อขาเข้าจากอุปกรณ์ LAN ไปยังโฮสต์ และ VPN นี้<span class="notice-green">รองรับ</span>ฟีเจอร์อย่าง “ยกเว้นแอป/ไม่ผ่าน VPN ต่อแอป”.</p>
     <p><strong>วิธีใช้:</strong> ติดตั้งปลั๊กอินส่งต่อภายใน (คอมโพเนนต์คู่กัน) และอนุญาตตามที่ระบบแจ้ง จากนั้นในรายการยกเว้น/ต่อแอปของ VPN ให้ตั้งปลั๊กอินนี้เป็นการเชื่อมต่อโดยตรง (ไม่ผ่าน VPN) แล้วตั้งค่า proxy บนอุปกรณ์อื่นด้วย IP และพอร์ตของโฮสต์ และให้บริการเกตเวย์บนโฮสต์ทำงานต่อเนื่อง.</p>
     <p><strong>หลักการทำงาน:</strong> ปลั๊กอินดูแลการฟังในเครื่องและการสื่อสาร LAN ส่วนแอปหลักดูแลพร็อกซีและทางออก VPN ทั้งสองทำงานร่วมกันในเครื่องเพื่อส่งต่อทราฟฟิก.</p>
     <p><strong>หมายเหตุ:</strong> ต้องยกเว้นปลั๊กอินออกจาก VPN ไม่เช่นนั้นการเชื่อมต่อ LAN จะถูก VPN ดักและใช้งานไม่ได้ หากไม่มั่นใจการตั้งค่า ให้เปิดแอปปลั๊กอินและตรวจสอบสถานะ.</p>
     <h2>โหมดเสริม (ส่งต่อภายนอก)</h2>
-    <p><strong>สถานการณ์ใช้งาน:</strong> VPN บล็อกการเชื่อมต่อขาเข้าจากอุปกรณ์ LAN ไปยังโฮสต์ และ VPN นี้ไม่รองรับฟีเจอร์อย่าง “ยกเว้นแอป/ไม่ผ่าน VPN ต่อแอป”.</p>
+    <p><strong>สถานการณ์ใช้งาน:</strong> VPN บล็อกการเชื่อมต่อขาเข้าจากอุปกรณ์ LAN ไปยังโฮสต์ และ VPN นี้<span class="notice-green">ไม่รองรับ</span>ฟีเจอร์อย่าง “ยกเว้นแอป/ไม่ผ่าน VPN ต่อแอป”.</p>
     <p><strong>วิธีใช้:</strong> บนอุปกรณ์หลัก ให้เปิด VPN และสวิตช์ส่งต่อภายนอก แล้วแตะสแกน บนอุปกรณ์คู่ ให้ปิด VPN และเปิดสวิตช์ส่งต่อภายนอก จะมี QR ปรากฏ ใช้อุปกรณ์หลักสแกนเพื่อเชื่อมต่อ.</p>
     <p><strong>หลักการทำงาน:</strong> โหมดเสริมเพิ่มอุปกรณ์คู่และย้ายบริการพร็อกซีไปไว้ที่นั่น โฮสต์ (ที่เปิด VPN) จะเชื่อมต่อออกไปยังอุปกรณ์คู่ ดึงข้อมูลกลับมา แล้วจึงส่งคำขอในเครื่อง.</p>
     <p><strong>หมายเหตุ:</strong> อุปกรณ์คู่สามารถตั้งค่า proxy เหมือนอุปกรณ์อื่น (พร็อกซี VPN แบบ full‑tunnel / พร็อกซี LAN / พร็อกซี LAN ผ่าน Wi‑Fi) เพื่อใช้ VPN ของอุปกรณ์หลัก หากอุปกรณ์คู่ต้องใช้พร็อกซี VPN แบบ full‑tunnel ผ่าน Clash ให้ปิด Clash (VPN) ก่อน เชื่อมต่อกับอุปกรณ์หลักให้สำเร็จ แล้วค่อยเปิด Clash (VPN) อีกครั้ง ระบบปัจจุบันแยกอุปกรณ์หลักกับอุปกรณ์คู่ตามการเปิดใช้งาน VPN.</p>
@@ -1880,12 +1912,12 @@
       <li><strong>Ibang device</strong>: ilagay ang <span class="notice-green">IP ng host</span> + <span class="notice-green">port ng host</span> sa mga setting ng HTTP/HTTPS/SOCKS5 proxy na sinusuportahan ng device/app.</li>
     </ul>
         <h2>Pinalakas na mode (panloob na relay)</h2>
-    <p><strong>Gamit:</strong> Hinaharang ng VPN ang mga papasok na koneksyon mula sa mga LAN device papunta sa host, at ang VPN na ito ay sumusuporta sa mga feature tulad ng “app exclusion/per‑app VPN bypass”.</p>
+    <p><strong>Gamit:</strong> Hinaharang ng VPN ang mga papasok na koneksyon mula sa mga LAN device papunta sa host, at ang VPN na ito ay <span class="notice-green">sumusuporta</span> sa mga feature tulad ng “app exclusion/per‑app VPN bypass”.</p>
     <p><strong>Paraan ng paggamit:</strong> Una, i‑install ang inbound‑relay plugin (companion component) at ibigay ang mga kinakailangang permiso. Sa listahan ng per‑app/exclusion ng VPN, itakda ang plugin na ito sa direct connection (hindi dumadaan sa VPN). Pagkatapos, i‑set ang proxy sa ibang device gamit ang host IP at host port, at panatilihing tumatakbo ang gateway service sa host.</p>
     <p><strong>Paano ito gumagana:</strong> Ang plugin ang humahawak sa local listening at LAN communication, habang ang main app ang humahawak sa proxy at VPN egress. Magkasamang nagre‑relay ang dalawa sa iisang device.</p>
     <p><strong>Mga paalala:</strong> Dapat naka‑exclude ang plugin sa VPN; kung hindi, mahaharang ng VPN ang LAN connections at hindi ito gagana. Kung hindi sigurado sa setup, buksan ang plugin app at tingnan ang status indicators.</p>
     <h2>Pinalakas na mode (panlabas na relay)</h2>
-    <p><strong>Gamit:</strong> Hinaharang ng VPN ang mga papasok na koneksyon mula sa mga LAN device papunta sa host, at hindi nito sinusuportahan ang mga feature tulad ng “app exclusion/per‑app VPN bypass”.</p>
+    <p><strong>Gamit:</strong> Hinaharang ng VPN ang mga papasok na koneksyon mula sa mga LAN device papunta sa host, at <span class="notice-green">hindi nito sinusuportahan</span> ang mga feature tulad ng “app exclusion/per‑app VPN bypass”.</p>
     <p><strong>Paraan ng paggamit:</strong> Sa pangunahing device, i‑enable ang VPN at ang outbound‑relay switch, tapos i‑tap ang Scan. Sa companion device, i‑disable ang VPN at i‑enable ang outbound relay; lalabas ang QR code. I‑scan ito gamit ang pangunahing device para kumonekta.</p>
     <p><strong>Paano ito gumagana:</strong> Ang pinalakas na mode ay nagdadagdag ng companion device at inililipat ang proxy service dito. Kumokonekta palabas ang host (na may VPN) sa companion device, ibinabalik ang data, at saka nagsasagawa ng mga request nang lokal.</p>
     <p><strong>Mga paalala:</strong> Maaaring i‑configure ng companion device ang proxy gaya ng iba (full‑tunnel VPN proxy / LAN proxy / Wi‑Fi LAN proxy) para gamitin ang VPN ng pangunahing device. Kung kailangan ng companion device ang full‑tunnel VPN proxy sa Clash, patayin muna ang Clash (VPN), kumonekta sa pangunahing device, at pagkatapos ay buksan muli ang Clash (VPN) kapag na‑establish na ang koneksyon. Kasalukuyang kinikilala ng system ang pangunahing device at mga companion base sa kung naka‑enable ang VPN.</p>
@@ -1973,12 +2005,12 @@
       <li><strong>Diğer cihazlar</strong>: Cihaz/uygulamanın desteklediği HTTP/HTTPS/SOCKS5 proxy alanlarına <span class="notice-green">host IP’si</span> + <span class="notice-green">host portu</span> yazın.</li>
     </ul>
         <h2>Gelişmiş mod (iç yönlendirme)</h2>
-    <p><strong>Kullanım senaryosu:</strong> VPN, LAN cihazlarından ana makineye gelen bağlantıları engeller ve bu VPN “uygulama hariç tutma/uygulama başına VPN atlama” gibi özellikleri destekler.</p>
+    <p><strong>Kullanım senaryosu:</strong> VPN, LAN cihazlarından ana makineye gelen bağlantıları engeller ve bu VPN “uygulama hariç tutma/uygulama başına VPN atlama” gibi özellikleri <span class="notice-green">destekler</span>.</p>
     <p><strong>Kullanım:</strong> Önce giriş yönlendirme eklentisini (eşlikçi bileşen) kurun ve istenen izinleri verin. VPN’in uygulama bazlı/hariç listesinde bu eklentiyi doğrudan bağlantı (VPN dışı) olarak ayarlayın. Ardından diğer cihazlarda proxy’yi ana makine IP’si ve portu ile ayarlayın ve ana makinede ağ geçidi hizmetini çalışır durumda tutun.</p>
     <p><strong>Çalışma şekli:</strong> Eklenti yerel dinleme ve LAN iletişimini üstlenir, ana uygulama proxy ve VPN çıkışını üstlenir. İkisi aynı cihazda yerel olarak birlikte yönlendirir.</p>
     <p><strong>Notlar:</strong> Eklenti VPN’den hariç tutulmalıdır; aksi halde LAN bağlantıları VPN tarafından yakalanır ve kullanılamaz. Emin değilseniz, eklenti uygulamasını açıp durum göstergelerini kontrol edin.</p>
     <h2>Gelişmiş mod (dış yönlendirme)</h2>
-    <p><strong>Kullanım senaryosu:</strong> VPN, LAN cihazlarından ana makineye gelen bağlantıları engeller ve bu VPN “uygulama hariç tutma/uygulama başına VPN atlama” gibi özellikleri desteklemez.</p>
+    <p><strong>Kullanım senaryosu:</strong> VPN, LAN cihazlarından ana makineye gelen bağlantıları engeller ve bu VPN “uygulama hariç tutma/uygulama başına VPN atlama” gibi özellikleri <span class="notice-green">desteklemez</span>.</p>
     <p><strong>Kullanım:</strong> Ana cihazda VPN’i açın ve dış yönlendirme anahtarını etkinleştirip “Tara”ya dokunun. Eşlikçi cihazda VPN’i kapatın ve dış yönlendirmeyi açın; QR kodu görünür. Bağlantıyı kurmak için ana cihazla tarayın.</p>
     <p><strong>Çalışma şekli:</strong> Gelişmiş mod bir eşlikçi cihaz ekler ve proxy hizmetini ona taşır. Ana makine (VPN açıkken) eşlikçi cihaza dışarı doğru bağlanır, veriyi geri getirir ve ardından istekleri yerel olarak başlatır.</p>
     <p><strong>Notlar:</strong> Eşlikçi cihaz da diğer cihazlar gibi proxy yapılandırabilir (tam tünel VPN proxy / LAN proxy / Wi‑Fi LAN proxy) ve ana cihazın VPN’ini kullanabilir. Eşlikçi cihazın Clash üzerinden tam tünel VPN proxy’ye ihtiyacı varsa, önce Clash (VPN)’i kapatın, ana cihaza bağlanın, bağlantı tamamlanınca Clash (VPN)’i yeniden açın. Sistem şu anda ana cihaz ile eşlikçi cihazları VPN’in açık olup olmamasına göre ayırır.</p>
@@ -2066,12 +2098,12 @@
       <li><strong>دیگر ڈیوائسز</strong>: ڈیوائس/ایپ کی HTTP/HTTPS/SOCKS5 پراکسی سیٹنگ میں <span class="notice-green">ہوسٹ IP</span> + <span class="notice-green">ہوسٹ پورٹ</span> لکھیں۔</li>
     </ul>
         <h2>اینہانسڈ موڈ (اندرونی ریلے)</h2>
-    <p><strong>استعمال کی صورت:</strong> VPN LAN ڈیوائسز سے ہوسٹ تک آنے والی ان باؤنڈ کنکشنز کو روکتا ہے، اور یہ VPN “ایپ اخراج/فی ایپ VPN بائی پاس” جیسی خصوصیات کو سپورٹ کرتا ہے۔</p>
+    <p><strong>استعمال کی صورت:</strong> VPN LAN ڈیوائسز سے ہوسٹ تک آنے والی ان باؤنڈ کنکشنز کو روکتا ہے، اور یہ VPN “ایپ اخراج/فی ایپ VPN بائی پاس” جیسی خصوصیات کو <span class="notice-green">سپورٹ کرتا ہے</span>۔</p>
     <p><strong>طریقۂ استعمال:</strong> سب سے پہلے ان باؤنڈ ریلے پلگ اِن (ساتھی جزو) انسٹال کریں اور مطلوبہ اجازتیں دیں۔ VPN کی ایپ‑وائز/اخراج فہرست میں اس پلگ اِن کو ڈائریکٹ کنکشن (VPN کے بغیر) پر سیٹ کریں۔ پھر دوسرے ڈیوائسز پر پروکسی کو ہوسٹ IP اور ہوسٹ پورٹ سے سیٹ کریں، اور ہوسٹ پر گیٹ وے سروس چلتی رہنے دیں۔</p>
     <p><strong>کام کرنے کا طریقہ:</strong> پلگ اِن لوکل لِسننگ اور LAN کمیونیکیشن سنبھالتا ہے، جبکہ مین ایپ پروکسی اور VPN ایگریس سنبھالتی ہے۔ دونوں ایک ہی ڈیوائس پر مل کر ٹریفک فارورڈ کرتے ہیں۔</p>
     <p><strong>نوٹس:</strong> پلگ اِن کا VPN سے خارج ہونا ضروری ہے؛ ورنہ LAN کنکشنز VPN کے ذریعے ہائی جیک ہو جائیں گے اور دستیاب نہیں رہیں گے۔ اگر یقین نہ ہو تو پلگ اِن ایپ کھولیں اور اس کی حالت کے اشارے دیکھیں۔</p>
     <h2>اینہانسڈ موڈ (بیرونی ریلے)</h2>
-    <p><strong>استعمال کی صورت:</strong> VPN LAN ڈیوائسز سے ہوسٹ تک آنے والی ان باؤنڈ کنکشنز کو روکتا ہے، اور یہ VPN “ایپ اخراج/فی ایپ VPN بائی پاس” جیسی خصوصیات کو سپورٹ نہیں کرتا۔</p>
+    <p><strong>استعمال کی صورت:</strong> VPN LAN ڈیوائسز سے ہوسٹ تک آنے والی ان باؤنڈ کنکشنز کو روکتا ہے، اور یہ VPN “ایپ اخراج/فی ایپ VPN بائی پاس” جیسی خصوصیات کو <span class="notice-green">سپورٹ نہیں کرتا</span>۔</p>
     <p><strong>طریقۂ استعمال:</strong> مین ڈیوائس پر VPN آن کریں اور آؤٹ باؤنڈ ریلے سوئچ آن کر کے اسکین پر ٹیپ کریں۔ ساتھی ڈیوائس پر VPN بند کریں اور آؤٹ باؤنڈ ریلے آن کریں؛ QR کوڈ دکھے گا۔ کنکشن بنانے کے لیے مین ڈیوائس سے اسکین کریں۔</p>
     <p><strong>کام کرنے کا طریقہ:</strong> اینہانسڈ موڈ ایک ساتھی ڈیوائس شامل کرتا ہے اور پروکسی سروس اسے منتقل کر دیتا ہے۔ ہوسٹ (VPN کے ساتھ) ساتھی ڈیوائس سے آؤٹ باؤنڈ کنکشن کرتا ہے، ڈیٹا واپس لاتا ہے اور پھر لوکل درخواستیں کرتا ہے۔</p>
     <p><strong>نوٹس:</strong> ساتھی ڈیوائس بھی دوسرے ڈیوائسز کی طرح پروکسی کنفیگر کر سکتا ہے (فل ٹنل VPN پراکسی / LAN پراکسی / Wi‑Fi LAN پراکسی) تاکہ مین ڈیوائس کا VPN استعمال ہو۔ اگر ساتھی ڈیوائس کو Clash کے ذریعے فل ٹنل VPN پراکسی چاہیے تو پہلے Clash (VPN) بند کریں، مین ڈیوائس سے جڑیں، اور کنکشن بننے کے بعد Clash (VPN) دوبارہ آن کریں۔ سسٹم اس وقت مین اور ساتھی ڈیوائسز کو VPN کے فعال ہونے کی بنیاد پر الگ کرتا ہے۔</p>
@@ -2159,12 +2191,12 @@
       <li><strong>Thiết bị khác</strong>: điền <span class="notice-green">IP host</span> + <span class="notice-green">cổng máy chủ</span> trong phần cấu hình proxy HTTP/HTTPS/SOCKS5 mà thiết bị/ứng dụng hỗ trợ.</li>
     </ul>
         <h2>Chế độ tăng cường (chuyển tiếp nội bộ)</h2>
-    <p><strong>Tình huống:</strong> VPN chặn kết nối vào từ thiết bị LAN tới máy chủ, và VPN này hỗ trợ các tính năng như “loại trừ ứng dụng/bỏ qua VPN theo từng ứng dụng”.</p>
+    <p><strong>Tình huống:</strong> VPN chặn kết nối vào từ thiết bị LAN tới máy chủ, và VPN này <span class="notice-green">hỗ trợ</span> các tính năng như “loại trừ ứng dụng/bỏ qua VPN theo từng ứng dụng”.</p>
     <p><strong>Cách dùng:</strong> Trước tiên cài plugin chuyển tiếp nội bộ (thành phần đồng hành) và cấp quyền theo hướng dẫn. Trong danh sách loại trừ/per‑app của VPN, đặt plugin này ở chế độ kết nối trực tiếp (không qua VPN). Sau đó cấu hình proxy trên các thiết bị khác bằng IP và cổng của máy chủ, và giữ dịch vụ gateway chạy trên máy chủ.</p>
     <p><strong>Nguyên lý:</strong> Plugin đảm nhiệm việc lắng nghe cục bộ và liên lạc LAN, ứng dụng chính đảm nhiệm proxy và luồng ra VPN. Hai bên phối hợp trên cùng thiết bị để chuyển tiếp.</p>
     <p><strong>Lưu ý:</strong> Plugin phải được loại trừ khỏi VPN; nếu không các kết nối LAN sẽ bị VPN chiếm và không sử dụng được. Nếu không chắc cấu hình đúng, hãy mở ứng dụng plugin và kiểm tra trạng thái.</p>
     <h2>Chế độ tăng cường (chuyển tiếp ra ngoài)</h2>
-    <p><strong>Tình huống:</strong> VPN chặn kết nối vào từ thiết bị LAN tới máy chủ, và VPN này không hỗ trợ các tính năng như “loại trừ ứng dụng/bỏ qua VPN theo từng ứng dụng”.</p>
+    <p><strong>Tình huống:</strong> VPN chặn kết nối vào từ thiết bị LAN tới máy chủ, và VPN này <span class="notice-green">không hỗ trợ</span> các tính năng như “loại trừ ứng dụng/bỏ qua VPN theo từng ứng dụng”.</p>
     <p><strong>Cách dùng:</strong> Trên thiết bị chính, bật VPN và công tắc chuyển tiếp ra ngoài rồi nhấn Quét. Trên thiết bị đồng hành, tắt VPN và bật chuyển tiếp ra ngoài; mã QR sẽ hiện ra. Dùng thiết bị chính quét để thiết lập kết nối.</p>
     <p><strong>Nguyên lý:</strong> Chế độ tăng cường thêm một thiết bị đồng hành và chuyển dịch vụ proxy sang đó. Máy chủ (có VPN) kết nối ra ngoài tới thiết bị đồng hành, mang dữ liệu về rồi thực hiện yêu cầu cục bộ.</p>
     <p><strong>Lưu ý:</strong> Thiết bị đồng hành cũng có thể cấu hình proxy như các thiết bị khác (proxy VPN full‑tunnel / proxy LAN / proxy LAN qua Wi‑Fi) để dùng VPN của thiết bị chính. Nếu thiết bị đồng hành cần proxy VPN full‑tunnel qua Clash, hãy tắt Clash (VPN) trước, kết nối với thiết bị chính, rồi bật lại Clash (VPN) sau khi kết nối được thiết lập. Hệ thống hiện phân biệt thiết bị chính và đồng hành dựa trên việc VPN có bật hay không.</p>
