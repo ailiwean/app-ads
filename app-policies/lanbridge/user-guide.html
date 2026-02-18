@@ -293,8 +293,8 @@
         if(p) p.textContent=intro[lang]||intro.en;
         const note=document.getElementById('host-ip-note');
         if(note) note.innerHTML=hostIpNotes[lang]||hostIpNotes.en;
-        const openBtn=document.getElementById('open-browser-btn');
-        if(openBtn) openBtn.textContent=openBrowserLabels[lang]||openBrowserLabels.en;
+        const openLink=document.getElementById('open-browser-link');
+        if(openLink) openLink.textContent=openBrowserLabels[lang]||openBrowserLabels.en;
         const sel=document.getElementById('lang-select');
         if(sel) sel.value=lang;
       };
@@ -311,7 +311,7 @@
 <body>
   <h1 id="title">Network Share User Guide</h1>
   <div class="open-browser-row">
-    <a id="open-browser-btn" class="open-browser-btn" href="https://www.aiwean.xyz/app-policies/lanbridge/user-guide.html" target="_blank" rel="noopener">用浏览器打开</a>
+    <a id="open-browser-link" class="open-browser-btn" href="https://www.aiwean.xyz/app-policies/lanbridge/user-guide.html">用浏览器打开</a>
   </div>
   <div class="lang-switch">
     <label for="lang-select">Language / 语言：</label>
@@ -351,7 +351,7 @@
     <ol>
       <li>Open the app, pick proxy mode (recommend “Auto-detect”) and port (default 1080).</li>
       <li>Ensure host and clients are on the same LAN; port not occupied.</li>
-      <li>Tap “Start Gateway”.</li>
+      <li>Tap “Start Sharing”.</li>
     </ol>
     <p><span class="notice-green">For stable sharing service, disable battery optimization for this app in system settings, and allow auto-start (if available) and background running (if available).</span></p>
     <h2>Full‑tunnel VPN proxy</h2>
@@ -444,7 +444,7 @@
     <ol>
       <li>打开 App，选代理模式（推荐“自动识别”）和端口（默认 1080）。</li>
       <li>确认主机与客户端同局域网，端口未被占用。</li>
-      <li>点击“启动网关”。</li>
+      <li>点击“开始分享”。</li>
     </ol>
     <p><span class="notice-green">为确保共享服务稳定运行，请在系统设置中关闭此应用的电池优化，并允许应用自启动（如有）及后台运行（如有）。</span></p>
     <h2>全量 VPN 代理</h2>
@@ -538,7 +538,7 @@
     <ol>
       <li>افتح التطبيق، واختر وضع الوكيل (يُنصح بـ “اكتشاف تلقائي”) والمنفذ (الافتراضي 1080). الإصدار الحالي يوجّه كل الحركة عبر الوكيل.</li>
       <li>تأكد أن المضيف والعميل على نفس شبكة LAN وأن المنفذ غير مشغول.</li>
-      <li>اضغط “بدء البوابة”.</li>
+      <li>اضغط “بدء المشاركة”.</li>
     </ol>
     <p><span class="notice-green">لضمان استقرار خدمة المشاركة، عطّل تحسين البطارية لهذا التطبيق في إعدادات النظام، واسمح بالتشغيل التلقائي (إن وجد) والعمل في الخلفية (إن وجد).</span></p>
     <h2>وكيل VPN كامل النطاق</h2>
@@ -631,7 +631,7 @@
     <ol>
       <li>App öffnen, Proxy-Modus wählen (empfohlen „Automatisch erkennen“) und Port wählen (Standard 1080). Aktuelle Version routet den gesamten Verkehr über den Proxy.</li>
       <li>Sicherstellen, dass Host und Clients im selben LAN sind und der Port frei ist.</li>
-      <li>„Gateway starten“ tippen.</li>
+      <li>„Freigabe starten“ tippen.</li>
     </ol>
     <p><span class="notice-green">Für einen stabilen Betrieb der Freigabe deaktivieren Sie in den Systemeinstellungen die Akku-Optimierung für diese App und erlauben Sie Autostart (falls verfügbar) sowie Hintergrundausführung (falls verfügbar).</span></p>
     <h2>Volltunnel‑VPN‑Proxy</h2>
@@ -724,7 +724,7 @@
     <ol>
       <li>Abre la app, elige el modo de proxy (se recomienda “Detección automática”) y el puerto (predeterminado 1080). La versión actual dirige todo el tráfico por el proxy.</li>
       <li>Asegúrate de que el host y los clientes estén en la misma LAN y que el puerto esté libre.</li>
-      <li>Toca “Iniciar gateway”.</li>
+      <li>Toca “Iniciar uso compartido”.</li>
     </ol>
     <p><span class="notice-green">Para que el servicio de compartición sea estable, desactiva la optimización de batería de esta app en Ajustes del sistema y permite el inicio automático (si existe) y la ejecución en segundo plano (si existe).</span></p>
     <h2>Proxy VPN de túnel completo</h2>
@@ -817,7 +817,7 @@
     <ol>
       <li>اپ را باز کنید، حالت پروکسی (پیشنهاد «تشخیص خودکار») و پورت (پیش‌فرض 1080) را برگزینید. نسخه فعلی تمام ترافیک را از طریق پروکسی هدایت می‌کند.</li>
       <li>مطمئن شوید میزبان و کلاینت در یک LAN هستند و پورت اشغال نشده است.</li>
-      <li>روی «شروع درگاه» بزنید.</li>
+      <li>روی «شروع اشتراک‌گذاری» بزنید.</li>
     </ol>
     <p><span class="notice-green">برای پایداری سرویس اشتراک‌گذاری، در تنظیمات سیستم بهینه‌سازی باتری این برنامه را خاموش کنید و اجرای خودکار (در صورت وجود) و اجرای پس‌زمینه (در صورت وجود) را مجاز کنید.</span></p>
     <h2>پروکسی VPN تمام‌ترافیک</h2>
@@ -910,7 +910,7 @@
     <ol>
       <li>Ouvrez l’app, choisissez le mode proxy (recommandé « Détection auto ») et le port (1080 par défaut). La version actuelle force tout le trafic via ce proxy.</li>
       <li>Vérifiez que l’hôte et les clients sont sur le même LAN et que le port est libre.</li>
-      <li>Appuyez sur « Démarrer la passerelle ».</li>
+      <li>Appuyez sur « Démarrer le partage ».</li>
     </ol>
     <p><span class="notice-green">Pour assurer la stabilité du partage, désactivez l’optimisation de la batterie pour cette app dans les réglages système, et autorisez le démarrage automatique (si disponible) et l’exécution en arrière-plan (si disponible).</span></p>
     <h2>Proxy VPN tunnel complet</h2>
@@ -1003,7 +1003,7 @@
     <ol>
       <li>ऐप खोलें, प्रॉक्सी मोड चुनें (अनुशंसित “ऑटो-डिटेक्ट”) और पोर्ट चुनें (डिफ़ॉल्ट 1080)। वर्तमान संस्करण पूरा ट्रैफ़िक प्रॉक्सी से भेजता है।</li>
       <li>सुनिश्चित करें कि होस्ट और क्लाइंट एक ही LAN पर हैं और पोर्ट खाली है।</li>
-      <li>“गेटवे शुरू करें” टैप करें।</li>
+      <li>“शेयरिंग शुरू करें” टैप करें।</li>
     </ol>
     <p><span class="notice-green">साझा सेवा को स्थिर रखने के लिए, सिस्टम सेटिंग्स में इस ऐप की बैटरी ऑप्टिमाइज़ेशन बंद करें, और ऑटो-स्टार्ट (यदि उपलब्ध हो) तथा बैकग्राउंड रनिंग (यदि उपलब्ध हो) की अनुमति दें।</span></p>
     <h2>फुल‑टनल VPN प्रॉक्सी</h2>
@@ -1096,7 +1096,7 @@
     <ol>
       <li>Buka app, pilih mode proxy (disarankan “Deteksi otomatis”) dan port (default 1080). Versi sekarang memaksa seluruh trafik lewat proxy.</li>
       <li>Pastikan host dan klien berada pada LAN yang sama dan port tidak dipakai.</li>
-      <li>Ketuk “Mulai Gateway”.</li>
+      <li>Ketuk “Mulai Berbagi”.</li>
     </ol>
     <p><span class="notice-green">Agar layanan berbagi stabil, nonaktifkan optimisasi baterai untuk aplikasi ini di pengaturan sistem, dan izinkan mulai otomatis (jika tersedia) serta berjalan di latar belakang (jika tersedia).</span></p>
     <h2>Proxy VPN full‑tunnel</h2>
@@ -1189,7 +1189,7 @@
     <ol>
       <li>アプリを開き、プロキシモード（推奨「自動識別」）とポート（デフォルト 1080）を選択します。現行バージョンはすべてのトラフィックをプロキシ経由にします。</li>
       <li>ホストとクライアントが同じ LAN 上にあり、ポートが空いていることを確認します。</li>
-      <li>「ゲートウェイ開始」をタップします。</li>
+      <li>「共有開始」をタップします。</li>
     </ol>
     <p><span class="notice-green">共有サービスを安定して動かすため、システム設定でこのアプリのバッテリー最適化をオフにし、自動起動（利用できる場合）とバックグラウンド実行（利用できる場合）を許可してください。</span></p>
     <h2>フルトンネルVPNプロキシ</h2>
@@ -1282,7 +1282,7 @@
     <ol>
       <li>앱을 열어 프록시 모드(“자동 감지” 권장)와 포트(기본 1080)를 선택합니다. 현재 버전은 전체 트래픽을 프록시로 보냅니다.</li>
       <li>호스트와 클라이언트가 같은 LAN에 있고 포트가 비어 있는지 확인합니다.</li>
-      <li>“게이트웨이 시작”을 누릅니다.</li>
+      <li>“공유 시작”을 누릅니다.</li>
     </ol>
     <p><span class="notice-green">공유 서비스의 안정적인 동작을 위해 시스템 설정에서 이 앱의 배터리 최적화를 끄고, 자동 시작(가능한 경우)과 백그라운드 실행(가능한 경우)을 허용하세요.</span></p>
     <h2>전체 터널 VPN 프록시</h2>
@@ -1375,7 +1375,7 @@
     <ol>
       <li>Buka app, pilih mod proksi (disyorkan “Auto-detect”) dan port (lalai 1080). Versi semasa memaksa semua trafik melalui proksi.</li>
       <li>Pastikan hos dan klien berada dalam LAN yang sama dan port tidak digunakan.</li>
-      <li>Ketik “Mulakan Gateway”.</li>
+      <li>Ketik “Mulakan Perkongsian”.</li>
     </ol>
     <p><span class="notice-green">Untuk kestabilan perkhidmatan perkongsian, matikan pengoptimuman bateri untuk aplikasi ini dalam tetapan sistem, dan benarkan mula automatik (jika ada) serta berjalan di latar belakang (jika ada).</span></p>
     <h2>Proksi VPN terowong penuh</h2>
@@ -1468,7 +1468,7 @@
     <ol>
       <li>Abra o app, escolha o modo de proxy (recomendado “Detecção automática”) e a porta (padrão 1080). A versão atual força todo o tráfego pelo proxy.</li>
       <li>Certifique-se de que host e clientes estejam na mesma LAN e que a porta não esteja ocupada.</li>
-      <li>Toque em “Iniciar gateway”.</li>
+      <li>Toque em “Iniciar compartilhamento”.</li>
     </ol>
     <p><span class="notice-green">Para manter o serviço de compartilhamento estável, desative a otimização de bateria deste app nas configurações do sistema e permita início automático (se disponível) e execução em segundo plano (se disponível).</span></p>
     <h2>Proxy VPN de túnel completo</h2>
@@ -1561,7 +1561,7 @@
     <ol>
       <li>Откройте приложение, выберите режим прокси (рекомендуется «Автоопределение») и порт (по умолчанию 1080). Текущая версия направляет весь трафик через прокси.</li>
       <li>Убедитесь, что хост и клиенты в одной LAN и что порт не занят.</li>
-      <li>Нажмите «Запустить шлюз».</li>
+      <li>Нажмите «Начать общий доступ».</li>
     </ol>
     <p><span class="notice-green">Чтобы обеспечить стабильную работу общего доступа, отключите оптимизацию батареи для этого приложения в системных настройках и разрешите автозапуск (если доступно) и работу в фоне (если доступно).</span></p>
     <h2>Полнотуннельный VPN‑прокси</h2>
@@ -1654,7 +1654,7 @@
     <ol>
       <li>Fungua app, chagua hali ya proksi (inapendekezwa “Utambuzi otomatiki”) na bandari (chaguo-msingi 1080). Toleo la sasa hupitisha trafiki yote kupitia proksi.</li>
       <li>Hakikisheni host na wateja wako LAN moja na bandari haijatumika.</li>
-      <li>Bofya “Anzisha Gateway”.</li>
+      <li>Bofya “Anzisha Kushiriki”.</li>
     </ol>
     <p><span class="notice-green">Ili huduma ya kushiriki iwe thabiti, zima uboreshaji wa betri wa programu hii kwenye mipangilio ya mfumo, na ruhusu kuanza kiotomatiki (kama inapatikana) pamoja na kuendeshwa chinichini (kama inapatikana).</span></p>
     <h2>Proksi ya VPN full‑tunnel</h2>
@@ -1747,7 +1747,7 @@
     <ol>
       <li>เปิดแอป เลือกโหมดพร็อกซี (แนะนำ “ตรวจหาอัตโนมัติ”) และพอร์ต (ค่าเริ่มต้น 1080) เวอร์ชันปัจจุบันบังคับให้ทราฟฟิกทั้งหมดผ่านพร็อกซี</li>
       <li>ยืนยันว่าโฮสต์และไคลเอนต์อยู่ใน LAN เดียวกัน และพอร์ตไม่ถูกใช้งาน</li>
-      <li>แตะ “เริ่มเกตเวย์”</li>
+      <li>แตะ “เริ่มแชร์”</li>
     </ol>
     <p><span class="notice-green">เพื่อให้บริการแชร์ทำงานเสถียร ให้ปิดการเพิ่มประสิทธิภาพแบตเตอรี่ของแอปนี้ในตั้งค่าระบบ และอนุญาตการเริ่มอัตโนมัติ (ถ้ามี) และการทำงานเบื้องหลัง (ถ้ามี)</span></p>
     <h2>พร็อกซี VPN แบบ full‑tunnel</h2>
@@ -1840,7 +1840,7 @@
     <ol>
       <li>Buksan ang app, piliin ang mode ng proxy (inirerekomenda ang “Auto-detect”) at ang port (default 1080). Sa kasalukuyang bersyon, lahat ng trapiko ay dumadaan sa proxy.</li>
       <li>Tiyaking nasa parehong LAN ang host at mga kliyente at hindi ginagamit ang port.</li>
-      <li>Pindutin ang “Start Gateway”.</li>
+      <li>Pindutin ang “Simulan ang Pagbabahagi”.</li>
     </ol>
     <p><span class="notice-green">Para maging matatag ang serbisyo ng pag-share, i-disable ang battery optimization ng app na ito sa system settings, at payagan ang auto-start (kung available) at background running (kung available).</span></p>
     <h2>Full‑tunnel VPN proxy</h2>
@@ -1933,7 +1933,7 @@
     <ol>
       <li>Uygulamayı açın, proxy modunu seçin (“Otomatik algıla” önerilir) ve portu belirleyin (varsayılan 1080). Mevcut sürüm tüm trafiği proxy üzerinden yönlendirir.</li>
       <li>Host ve istemcilerin aynı LAN’de olduğundan ve portun boş olduğundan emin olun.</li>
-      <li>“Gateway’i başlat”a dokunun.</li>
+      <li>“Paylaşımı başlat”a dokunun.</li>
     </ol>
     <p><span class="notice-green">Paylaşım hizmetinin stabil çalışması için sistem ayarlarında bu uygulamanın pil optimizasyonunu kapatın, otomatik başlatmayı (varsa) ve arka planda çalışmayı (varsa) izinli hale getirin.</span></p>
     <h2>Tam tünel VPN proxy</h2>
@@ -2026,7 +2026,7 @@
     <ol>
       <li>ایپ کھولیں، پراکسی موڈ منتخب کریں (تجویز “آٹو ڈٹیکٹ”) اور پورٹ منتخب کریں (ڈیفالٹ 1080)۔ موجودہ ورژن ساری ٹریفک پراکسی سے گزارتا ہے۔</li>
       <li>یقین کریں کہ ہوسٹ اور کلائنٹس ایک ہی LAN پر ہیں اور پورٹ خالی ہے۔</li>
-      <li>“گیٹ وے شروع کریں” پر ٹیپ کریں۔</li>
+      <li>“شیئرنگ شروع کریں” پر ٹیپ کریں۔</li>
     </ol>
     <p><span class="notice-green">شیئرنگ سروس کے استحکام کے لیے، سسٹم سیٹنگز میں اس ایپ کی بیٹری آپٹیمائزیشن بند کریں اور آٹو اسٹارٹ (اگر دستیاب ہو) اور بیک گراؤنڈ رننگ (اگر دستیاب ہو) کی اجازت دیں۔</span></p>
     <h2>فل ٹنل VPN پراکسی</h2>
@@ -2119,7 +2119,7 @@
     <ol>
       <li>Mở ứng dụng, chọn chế độ proxy (khuyến nghị “Tự động nhận diện”) và cổng (mặc định 1080). Phiên bản hiện tại đưa toàn bộ lưu lượng qua proxy.</li>
       <li>Đảm bảo máy chủ và client cùng LAN và cổng không bị chiếm.</li>
-      <li>Nhấn “Khởi động gateway”.</li>
+      <li>Nhấn “Bắt đầu chia sẻ”.</li>
     </ol>
     <p><span class="notice-green">Để dịch vụ chia sẻ chạy ổn định, hãy tắt tối ưu pin cho ứng dụng này trong cài đặt hệ thống và cho phép tự khởi động (nếu có) và chạy nền (nếu có).</span></p>
     <h2>Proxy VPN full‑tunnel</h2>
