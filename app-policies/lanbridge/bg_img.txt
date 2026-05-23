@@ -1,0 +1,2 @@
+hero_bamboo.png
+hero_bamboo_stopped.png
